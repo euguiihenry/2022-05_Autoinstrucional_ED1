@@ -10,3 +10,4 @@ struct pilotos
   int polePosition;				// Posição de iniciação na corrida.
   int QtdVoltasRap;				// Quantidade de voltas mais rápidas.
 }
+
