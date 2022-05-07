@@ -11,7 +11,9 @@ características:</span>
 <h6>1- Criar a organização do trabalho</h6>
 
 <span>Pesquisar a respeito de um sistema de cadastro.</span>
+<br>
 <span>Criar as estruturas (usando typedef e salvando o arquivo com extensao .h) </span>
+<br>
 <span>Criar o main (Sistema de cadastro)</span>
 
 <span>Sites para ajudar</span>
@@ -23,9 +25,13 @@ https://forum.scriptbrasil.com.br/topic/145711-struct-de-cadastro-em-arquivostxt
 <h6>2- Fazer as implementações</h6>
 
 <span>Criar as funçoes (Cadastrar, editar, excluir, Imprimir, EhCraque)
+<br>
 Tempos que criar validações basicas em cada um.
+<br>
 Ex: Tamanho de caracteres, texto coerente, valor minimo
+<br>
 Temos que criar uma logica para definir uma classificação de podio
+<br>
 Ex: Melhor Equipe, Mais Vitorias, Melhor piloto, etc...</span>
 
 <h6>3- Criar uma ou mais Main para chamar cada uma das funções</h6>
