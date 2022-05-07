@@ -15,6 +15,7 @@ características:</span>
 <span>Criar o main (Sistema de cadastro)</span>
 
 <span>Sites para ajudar</span>
+<br>
 https://pt.stackoverflow.com/questions/154070/como-importar-fun%C3%A7%C3%B5es-de-outro-arquivo-em-c
 https://pt.stackoverflow.com/questions/420104/cadastro-de-cliente-em-c-salvando-dados-em-um-arquivo-txt
 https://forum.scriptbrasil.com.br/topic/145711-struct-de-cadastro-em-arquivostxt/
@@ -27,7 +28,7 @@ Ex: Tamanho de caracteres, texto coerente, valor minimo
 Temos que criar uma logica para definir uma classificação de podio
 Ex: Melhor Equipe, Mais Vitorias, Melhor piloto, etc...</span>
 
-<h6>3_ Criar uma ou mais Main para chamar cada uma das funções</h6>
+<h6>3- Criar uma ou mais Main para chamar cada uma das funções</h6>
 <span>Nesses mains poder ter opções como: Atribuir, ve um ou todos, sair.</spam>
 
 <h6>4- Criar um arquivo principal onde serão chamados as funções principais</h6>
