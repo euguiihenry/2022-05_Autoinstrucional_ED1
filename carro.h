@@ -11,7 +11,7 @@ struct carro {
     int caixaCambio;
     int aroRoda;
     float qtdEtanol;
-    
+
     struct carroMotor {
         char marca[30];
         char tipo[30];
