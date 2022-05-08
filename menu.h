@@ -1,7 +1,8 @@
 #include <stdio.h>
 
-int main(){
-	int cont = 1
+int main() {
+	int cont;
+
 	do{
 		printf("\n\MENU\n");
         printf("1. Atribuir\n");
@@ -9,34 +10,40 @@ int main(){
         printf("3. Exluir\n");
         printf("4. Imprimir\n");
         printf("5. EhCraque\n");
-        printf("0. Sair\n");
+        printf("6. Sair\n");
 
         scanf("%d", &cont);
         
         switch(cont){
-        	case 1:
-        		Atribui();
+			case 1:
+				atribuir();
         		break;
         	
 			case 2: 
-			    Edita();
+			    editar();
 			    break;
 			    
 			case 3: 
-			    Exclui();
+			    excluir();
 				break;
 				
 			case 4:
-			    Imprime();
+			    imprimir();
 			    break;
 			    
 			case 5:
-			    EhCreaque();
-				break;      
+			    ehCreaque();
+				break;
+
+			case 6:
+				sair();
+				break;
 			
 			default:
 			  	printf("\n Digite uma opcao valida: \n");    
 			    
 		}
 	}while(cont);
+
+	return 0;
 }
