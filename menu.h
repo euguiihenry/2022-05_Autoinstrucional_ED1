@@ -41,7 +41,7 @@ int main() {
 			
 			default:
 			  	printf("\n Digite uma opcao valida: \n");    
-			    
+			    break;
 		}
 	}while(cont);
 
