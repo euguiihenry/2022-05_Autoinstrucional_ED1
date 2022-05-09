@@ -1,8 +1,8 @@
 #include <stdio.h>
 
-//
-void setPilotoNacionalidade();
-char getPilotoNacionalidade()
+// 
+	typedef void setPilotoNacionalidade();
+	typedef char getPilotoNacionalidade();
 
 int main() {
 	int cont;
