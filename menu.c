@@ -8,7 +8,7 @@ int main() {
 	int cont;
 
 	do{
-		printf("\n\MENU\n");
+		printf("\nMENU\n");
         printf("1. Atribuir\n");
         printf("2. Editar\n");
         printf("3. Exluir\n");
