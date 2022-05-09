@@ -1,5 +1,9 @@
 #include <stdio.h>
 
+//
+void setPilotoNacionalidade();
+char getPilotoNacionalidade()
+
 int main() {
 	int cont;
 

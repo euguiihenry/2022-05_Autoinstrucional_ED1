@@ -19,5 +19,9 @@ void setPilotoNacionalidade {
 }
 
 char getPilotoNacionalidade {
-    //return printf(piloto.nacionalidade[30]); How to do this???
+    char pointer;
+
+    pointer = piloto.nacionalidade;
+
+    return pointer;
 }
