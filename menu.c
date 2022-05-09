@@ -1,8 +1,7 @@
 #include <stdio.h>
 
-// 
-	typedef void setPilotoNacionalidade();
-	typedef char getPilotoNacionalidade();
+typedef struct equipe teste;
+
 
 int main() {
 	int cont;
@@ -17,13 +16,15 @@ int main() {
         printf("6. Sair\n");
 
         scanf("%d", &cont);
-        
+         
+        teste tes[2];
+               
         switch(cont){
 			case 1:
-				atribuir();
+				//scanf(equipe.nacionalidade, 21, stdin);
         		break;
         	
-			case 2: 
+			/*case 2: 
 			    editar();
 			    break;
 			    
@@ -41,7 +42,7 @@ int main() {
 
 			case 6:
 				sair();
-				break;
+				break;*/
 			
 			default:
 			  	printf("\n Digite uma opcao valida: \n");    
