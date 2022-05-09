@@ -2,6 +2,7 @@
 #include <string.h>
 
 struct carro {
+    char nome[50];
     float comprimento;
     float largura;
     float altura;

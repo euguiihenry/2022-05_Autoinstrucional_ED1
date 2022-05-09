@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// 
+// Getter and Setter for Nacionalidade
 	typedef void setPilotoNacionalidade();
 	typedef char getPilotoNacionalidade();
 
@@ -20,27 +20,27 @@ int main() {
         
         switch(cont){
 			case 1:
-				atribuir();
+				//atribuir();
         		break;
         	
 			case 2: 
-			    editar();
+			    //editar();
 			    break;
 			    
 			case 3: 
-			    excluir();
+			    //excluir();
 				break;
 				
 			case 4:
-			    imprimir();
+			    //imprimir();
 			    break;
 			    
 			case 5:
-			    ehCreaque();
+			    //ehCreaque();
 				break;
 
 			case 6:
-				sair();
+				//sair();
 				break;
 			
 			default:

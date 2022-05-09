@@ -2,7 +2,7 @@
 #include <string.h>
 
 struct equipe {
-	char nome{}
+	char nome[51];
 	char nacionalidade[21]; // Quantidade de membros
 	int qtddMembros; 
 	int qtddTitulosConstrutores; // T�tulos dos construtores
