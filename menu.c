@@ -1,4 +1,5 @@
 #include <stdio.h>
+#inclue "piloto.h"
 
 // Getter and Setter for Nacionalidade
 	typedef void setPilotoNacionalidade();
