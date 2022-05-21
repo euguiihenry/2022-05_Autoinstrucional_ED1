@@ -13,7 +13,7 @@ struct piloto {
     int polePosition;				// Posição de iniciação na corrida.
     int qtdVoltasRap;      			// Quantidade de voltas mais rápidas
     
-}				.
+}
     
 printf("----------------------------------PILOTO-----------------------------------------");
 	    

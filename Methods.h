@@ -2,139 +2,130 @@
 #include <string.h>
 #include <stdlib.h>
 
-
-
-void CADASTRAMENTO_EQUIPE(void) { //FUNÇÃO  CADASTRAMENTO
-    int i;
-    
-    char nome[51];
-	char nacionalidade[21];
-	int qtddMembros; 
-	int qtddTitulosConstrutores; 
-	int qtddTitulosCondutores; 
-	int poliPositions; 
-	int qtddVoltasMaisRap; 
-	float valorMercado;
-	float taxaIncricaoTemp; 
-	char coresEquipe[31]; 
-	char chefeEquipe[21]; 
-	char diretorComercial[21]; 
-	char diretorTecnico[21]; 
-	char aeroDinamicChefe[21];
-	char projetistaChefe[21]; 
-	char ChefePesqEhDev[21]; 
-	char ChefeMecanico[21]; 
-	char tecnicoPneus[21];
-	char tecnicoComponentes[21]; 
-	char tecnicoTransmissao[21]; 
-	char tecnicoCombustivel[21];
-	char mecanicosPitStop[21][21]; 
+void cadastramento_equipe() {   //FUNCAO DE CADASTRAMENTO
+      int i;
+      char nome[51];
+      char nacionalidade[21];
+      int qtddMembros; 
+      int qtddTitulosConstrutores; 
+      int qtddTitulosCondutores; 
+      int poliPositions; 
+      int qtddVoltasMaisRap; 
+      float valorMercado;
+      float taxaIncricaoTemp; 
+      char coresEquipe[31]; 
+      char chefeEquipe[21]; 
+      char diretorComercial[21]; 
+      char diretorTecnico[21]; 
+      char aeroDinamicChefe[21];
+      char projetistaChefe[21]; 
+      char ChefePesqEhDev[21]; 
+      char ChefeMecanico[21]; 
+      char tecnicoPneus[21];
+      char tecnicoComponentes[21]; 
+      char tecnicoTransmissao[21]; 
+      char tecnicoCombustivel[21];
+      char mecanicosPitStop[21][21]; 
 	
- 	
-    for(i=0; i<3; i++){
-	
-	printf("\n\n");   
-	                  printf("\t\t ~~~~~~~~~~~~~~~~  CADASTRAMENTO  ~~~~~~~~~~~~~~~~\n\n");
-                      printf("\t\t ~~~~~~~~~~~~~~~~~~  DE  DADOS  ~~~~~~~~~~~~~~~~~~\n\n");
-                      printf("\n\n");
-                      printf("\n\n");
-                      
-                      printf("Por favor, preencha os campos abaixo. \n\n");                          
-                     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                     
+      for(i=0; i<3; i++){
+            printf("\n\n");   
+            printf("\t\t ~~~~~~~~~~~~~~~~  CADASTRAMENTO  ~~~~~~~~~~~~~~~~\n\n");
+            printf("\t\t ~~~~~~~~~~~~~~~~~~  DE  DADOS  ~~~~~~~~~~~~~~~~~~\n\n");
+            printf("\n\n");
+            printf("\n\n");
+            
+            printf("Por favor, preencha os campos abaixo. \n\n");                          
 
-                      fflush(stdin); //Limpar Buffer do Teclado
-                      printf("Nome: ");
-					  gets(nome);
+            fflush(stdin);      //Limpar Buffer do Teclado
+            printf("Nome: ");
+            gets(nome);
 						
-						printf("Nacionalidade: ");
-						gets(nacionalidade);
+            printf("Nacionalidade: ");
+            gets(nacionalidade);
+            
+            printf("Quantidade de membros: ");
+            scanf("%i", &qtddTitulosConstrutores);
+            
+            printf("Quantidade de titulos contrutores: ");
+            scanf("%i", &qtddTitulosCondutores);
+            
+            printf("Poli positions: ");
+            scanf("%i", &poliPositions);
+            
+            printf("Quantidade de voltas mais rapidas: ");
+            scanf("%i", &qtddVoltasMaisRap);
+            
+            printf("Valor do mercado: ");
+            scanf("%f", &valorMercado);
+            
+            printf("Valor da taxa de inscriï¿½ï¿½o: ");
+            scanf("%f", &taxaIncricaoTemp);
+            
+            printf("Cores de equipe : ");
+            gets(coresEquipe);
+            
+            printf("Chefe de equipe: ");
+            gets(chefeEquipe);
+            
+            printf("Diretor Comercial: ");
+            gets(diretorComercial);
+            
+            printf("Diretor Tecnico: ");
+            gets(diretorTecnico);
+            
+            printf("Chefe dinamico: ");
+            gets(aeroDinamicChefe);
+            
+            printf("Projetista Chefe: ");
+            gets(projetistaChefe);
+            
+            printf("Chefe de Pesquisa e Desenvolvimento: ");
+            gets(ChefePesqEhDev);
+            
+            printf("Chefe Mecanico: ");
+            gets(ChefeMecanico);
+            
+            printf("Tecnico de Pneus: ");
+            gets(tecnicoPneus);
+            
+            printf("Tecnicos de Componentes: ");
+            gets(tecnicoComponentes);
+            
+            printf("Tecnico de Transmissao: ");
+            gets(tecnicoTransmissao);
+            
+            printf("Tecnico de Combustiveis: ");
+            gets(tecnicoCombustivel);
 						
-						printf("Quantidade de membros: ");
-						scanf("%i", &qtddTitulosConstrutores);
-						
-						printf("Quantidade de titulos contrutores: ");
-						scanf("%i", &qtddTitulosCondutores);
-						
-						printf("Poli positions: ");
-						scanf("%i", &poliPositions);
-						
-						printf("Quantidade de voltas mais rapidas: ");
-						scanf("%i", &qtddVoltasMaisRap);
-						
-						printf("Valor do mercado: ");
-						scanf("%f", &valorMercado);
-						
-						printf("Valor da taxa de inscrição: ");
-						scanf("%f", &taxaIncricaoTemp);
-						
-						printf("Cores de equipe : ");
-						gets(coresEquipe);
-						
-						printf("Chefe de equipe: ");
-						gets(chefeEquipe);
-						
-						printf("Diretor Comercial: ");
-						gets(diretorComercial);
-						
-						printf("Diretor Tecnico: ");
-						gets(diretorTecnico);
-						
-						printf("Chefe dinamico: ");
-						gets(aeroDinamicChefe);
-						
-						printf("Projetista Chefe: ");
-						gets(projetistaChefe);
-						
-						printf("Chefe de Pesquisa e Desenvolvimento: ");
-						gets(ChefePesqEhDev);
-						
-						printf("Chefe Mecanico: ");
-						gets(ChefeMecanico);
-						
-						printf("Tecnico de Pneus: ");
-						gets(tecnicoPneus);
-						
-						printf("Tecnicos de Componentes: ");
-						gets(tecnicoComponentes);
-						
-						printf("Tecnico de Transmissao: ");
-						gets(tecnicoTransmissao);
-						
-						printf("Tecnico de Combustiveis: ");
-						gets(tecnicoCombustivel);
-						
-						for(int i = 0; i<21; i++){
-						printf("Mecanico Pit Stop: ");
-						gets(mecanicosPitStop[i]);
+            for(int i = 0; i<21; i++){
+                  printf("Mecanico Pit Stop: ");
+                  gets(mecanicosPitStop[i]);
 
-        
-                     printf("\n\n");
-                     printf("    Cadastro concluido com sucesso!   ",3745); 
-					 printf("\n\n");
-					 printf("\n\n");
-                     system("PAUSE");
-                     
-                     printf("\n\n");
-                   
-                     break;
-                     }
-                 }
-                
-             }
+                  printf("\n\n");
+                  printf("    Cadastro concluido com sucesso!   ",3745); 
+                  printf("\n\n");
+			printf("\n\n");
+                  system("PAUSE");
+
+                  printf("\n\n");
+                  
+                  break;
+            }
+      }
+}
 
 
 /*
 if(cont < TAM){
               system("cls");
               printf("\t\tDeseja continuar?   \n\n");
-              printf(" 1 - Sim   \n\n 2 - não\n\n");
+              printf(" 1 - Sim   \n\n 2 - nï¿½o\n\n");
               scanf("%d",&continuar);
               while(continuar!=1 && continuar!=2)
                 {
                 system("cls");
                 printf("\t\tDeseja continuar?   \n\n");
-                printf(" 1 - Sim   \n\n 2 - não\n\n");
+                printf(" 1 - Sim   \n\n 2 - nï¿½o\n\n");
                 scanf("%d",&continuar);                   
                 }
              
@@ -157,7 +148,7 @@ if(cont == TAM)
 
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void PESQUISA() // FUNÇÃO  PESQUISA
+void PESQUISA() // FUNï¿½ï¿½O  PESQUISA
      {
      int i;
      char nome_busca[50];
@@ -201,21 +192,21 @@ void PESQUISA() // FUNÇÃO  PESQUISA
     
      if(nao_tem==999){
                       system("cls");
-                      printf("\n  não foi encontrado nenhum dado correspondente. \n\n");
+                      printf("\n  nï¿½o foi encontrado nenhum dado correspondente. \n\n");
                       printf("  Certifique-se de que todas as palavras estejam escritas corretamente.\n\n\n\n\n\n");
                       }
                       
      system("PAUSE");                
      system("cls");
      printf("\t\tDeseja continuar?   \n\n");
-     printf(" 1 - Sim   \n\n 2 - não\n\n");
+     printf(" 1 - Sim   \n\n 2 - nï¿½o\n\n");
      scanf("%d",&continuar);
      
      while(continuar!=1 && continuar!=2)
                                        {
                                        system("cls");
                                        printf("\t\tDeseja continuar?   \n\n");
-                                       printf(" 1 - Sim   \n\n 2 - não\n\n");
+                                       printf(" 1 - Sim   \n\n 2 - nï¿½o\n\n");
                                        scanf("%d",&continuar);                   
                                        }
              
@@ -229,7 +220,7 @@ void PESQUISA() // FUNÇÃO  PESQUISA
       }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void AJUDA(void) // FUNÇÃO  AJUDA
+void AJUDA(void) // FUNï¿½ï¿½O  AJUDA
 {
     int b;
 
@@ -300,7 +291,7 @@ void AJUDA(void) // FUNÇÃO  AJUDA
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void EDITAR(void) // FUNÇÃO  EDITAR
+void EDITAR(void) // FUNï¿½ï¿½O  EDITAR
 {
      
      fflush(stdin); //Limpar Buffer do Teclado
@@ -400,7 +391,7 @@ void EDITAR(void) // FUNÇÃO  EDITAR
      if(nao_tem==999)
      {
      system("cls");
-     printf("\n  não foi encontrado nenhum dado correspondente. \n\n");
+     printf("\n  nï¿½o foi encontrado nenhum dado correspondente. \n\n");
      printf("  Certifique-se de que todas as palavras estejam escritas corretamente.\n\n\n\n\n\n");
      }
                
@@ -408,13 +399,13 @@ void EDITAR(void) // FUNÇÃO  EDITAR
      system("PAUSE");                
      system("cls");
      printf("\t\tDeseja continuar?   \n\n");
-     printf(" 1 - Sim   \n\n 2 - não\n\n");
+     printf(" 1 - Sim   \n\n 2 - nï¿½o\n\n");
      scanf("%d",&continuar);
      while(continuar!=1 && continuar!=2)
              {
              system("cls");
              printf("\t\tDeseja continuar?   \n\n");
-             printf(" 1 - Sim   \n\n 2 - não\n\n");
+             printf(" 1 - Sim   \n\n 2 - nï¿½o\n\n");
              scanf("%d",&continuar);                   
              }
              
@@ -426,7 +417,7 @@ void EDITAR(void) // FUNÇÃO  EDITAR
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-void EXCLUIR(void) // FUNÇÃO  EXCLUIR
+void EXCLUIR(void) // FUNï¿½ï¿½O  EXCLUIR
 {
                    
      int i,a;
@@ -465,20 +456,20 @@ void EXCLUIR(void) // FUNÇÃO  EXCLUIR
      if(nao_tem==999)
      {
      system("cls");
-     printf("\n  não foi encontrado nenhum dado correspondente. \n\n");
+     printf("\n  nï¿½o foi encontrado nenhum dado correspondente. \n\n");
      printf("  Certifique-se de que todas as palavras estejam escritas corretamente.\n\n\n\n\n\n");
      }
                              
      system("PAUSE");                
      system("cls");
      printf("\t\tDeseja continuar?   \n\n");
-     printf(" 1 - Sim   \n\n 2 - não\n\n");
+     printf(" 1 - Sim   \n\n 2 - nï¿½o\n\n");
      scanf("%d",&continuar);
      while(continuar!=1 && continuar!=2)
              {
              system("cls");
              printf("\t\tDeseja continuar?   \n\n");
-             printf(" 1 - Sim   \n\n 2 - não\n\n");
+             printf(" 1 - Sim   \n\n 2 - nï¿½o\n\n");
              scanf("%d",&continuar);                   
              }
 
