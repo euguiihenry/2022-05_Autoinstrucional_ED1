@@ -114,6 +114,12 @@ void cadastramento_equipe() {   //FUNCAO DE CADASTRAMENTO
       }
 }
 
+void sair() {
+	printf("\n\t\t Bye-bye :)");
+	//system("exit");
+	exit(0);
+}
+
 
 /*
 if(cont < TAM){
