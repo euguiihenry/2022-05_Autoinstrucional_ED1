@@ -16,7 +16,7 @@ void cadastramento_piloto();
 	    int qtdCampeonatosGanhos;
 	    int polePosition;				// Posição de iniciação na corrida.
 	    int qtdVoltasRap;      			// Quantidade de voltas mais rápidas
-	    
+
 	};
 
 // Funções:

@@ -38,3 +38,8 @@ Ex: Melhor Equipe, Mais Vitorias, Melhor piloto, etc...</span>
 <span>Nesses mains poder ter opções como: Atribuir, ve um ou todos, sair.</spam>
 
 <h6>4- Criar um arquivo principal onde serão chamados as funções principais</h6>
+
+<h5>Handiling Files in C</h5>
+
+<img href="https://media.geeksforgeeks.org/wp-content/uploads/File-functions.jpg"></img>
+<img href="http://startertutorials.com/blog/wp-content/uploads/2016/04/file-handling-functions.png"></img>
