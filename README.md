@@ -41,5 +41,7 @@ Ex: Melhor Equipe, Mais Vitorias, Melhor piloto, etc...</span>
 
 <h5>Handiling Files in C</h5>
 
-<img href="https://media.geeksforgeeks.org/wp-content/uploads/File-functions.jpg"></img>
-<img href="http://startertutorials.com/blog/wp-content/uploads/2016/04/file-handling-functions.png"></img>
+image.png
+image.png
+<img src="https://media.geeksforgeeks.org/wp-content/uploads/File-functions.jpg"></img>
+<img src="http://startertutorials.com/blog/wp-content/uploads/2016/04/file-handling-functions.png"></img>
