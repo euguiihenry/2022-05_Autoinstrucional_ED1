@@ -2,6 +2,11 @@
 #include <string.h>
 #include <stdlib.h>
 void cadastramento_piloto();
+void abrir();
+void fechar();
+
+// Variables:
+	FILE *filePointer;
 
 // Estrutura:
 	struct piloto {
@@ -14,24 +19,45 @@ void cadastramento_piloto();
 	    int peso;
 	    int idade;
 	    int qtdCampeonatosGanhos;
-	    int polePosition;				// Posição de iniciação na corrida.
-	    int qtdVoltasRap;      			// Quantidade de voltas mais rápidas
+	    int polePosition;				// PosiÃ§Ã£o de iniciaÃ§Ã£o na corrida.
+	    int qtdVoltasRap;      			// Quantidade de voltas mais rÃ¡pidas
 
 	};
 
-// Funções:
-	/* Cadastramento do Piloto: */
+// FunÃ§Ãµes:
+	/* Handling with Files: 
+	==========================================================================================================*/
+		void abrir() {
+			//fopen("fileopen","mode");
+			filePointer = fopen("./TextFiles/pilotos.txt", "w");
+
+			if(filePointer == NULL) {
+				printf("Error!");   
+				exit(1);             
+			}
+		}
+
+		void fechar() {
+			//fclose()
+			fclose(filePointer);
+		}
+
+	/* Cadastramento do Piloto:
+	==========================================================================================================*/
 		void cadastramento_piloto() {
 			// Definindo a estrutura a ser utilizada e seu apelido:
 				struct piloto p;
-				
+			
+			// Criando/Abrindo o Arquivo TXT:
+				abrir();
+			
 			// Limpando o buffer do teclado:
-			 	fflush(stdin);
+				fflush(stdin);
 				
-			// Impressão de qual tarefa será realizada:
+			// ImpressÃ£o de qual tarefa serÃ¡ realizada:
 				printf("\n\t\t ======================== CADASTRAMENTO DE PILOTO ========================\n");
 			
-			// Inserções:
+			// InserÃ§Ãµes:
 				// Nome:
 					printf("\t\t Insira o nome do piloto: ");
 					fgets(p.nome, 50, stdin);
@@ -69,25 +95,26 @@ void cadastramento_piloto();
 					scanf("%i", &p.qtdCampeonatosGanhos);
 					
 				// Pole Position:
-					printf("\t\t Insira a posição de largada do piloto: ");
+					printf("\t\t Insira a posiÃ§Ã£o de largada do piloto: ");
 					scanf("%i", &p.polePosition);
 					
 				// Qtd de Voltas Mais Rapidas:
-					printf("\t\t Insira a quantidade de voltas mais rápidas feitas pelo piloto: ");
+					printf("\t\t Insira a quantidade de voltas mais rÃ¡pidas feitas pelo piloto: ");
 					scanf("%i", &p.qtdVoltasRap);
+					
+				// Integrando os dados ao arquivo:
+					fprintf(filePointer, "%s", p.nome);
+					
+				//Fechando o arquivo TXT:
+					fechar();
 						
 		}
 	
-	// Edição do Piloto:
+	// Edicao do Piloto:
 		
 	
-	// Exclusão do Piloto:
+	// Exclusao do Piloto:
 		
 	
-	// Impressão do Piloto:
-	
-	// Functions:
-		void write() {
-			
-		}
+	// Impressao do Piloto:
 		
