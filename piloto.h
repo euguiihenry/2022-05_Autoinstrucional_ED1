@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 void cadastramento_piloto();
+void excluir_piloto();
 void abrir();
 void fechar();
 
