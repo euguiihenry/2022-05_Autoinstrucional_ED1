@@ -117,4 +117,49 @@ void fechar();
 		
 	
 	// Impressao do Piloto:
+
+	//Eh Craque
+
+void EhCraque(){
+
+		fflush(stdin); //Limpar Buffer do Teclado
+    	int i;
+    	int maior1=0, maior2=0, maior3=0;
+    	int TAM = 100;
+	     
+	    system("cls");
+	    printf("\n\n");   
+	    printf("\t\t ~~~~~~~~~~~~~~~~  EH CRAQUE  ~~~~~~~~~~~~~~~~\n\n");
+	    printf("\n\n");
+	    printf("\n\n");
+	    fflush(stdin); //Limpar Buffer do Teclado
+	    
+	    for(i=0; i<TAM; i++){
+	    	if(piloto[i].qtdCampeonatosGanhos>maior1){
+	    		maior1 = piloto[i].qtdCampeonatosGanhos;
+	    		piloto[0][].EhCraque = piloto[i].nome
+			}
+		}
+		
+		for(i=0; i<TAM; i++){
+			if(piloto[i].qtdCampeonatosGanhos>maior2 && piloto[i].qtdCampeonatosGanhos<maior1 ){
+	    		maior2 = piloto[i].qtdCampeonatosGanhos;
+	    		piloto[1][].EhCraque = piloto[i].nome
+			}
+		}
+		
+		for(i=0; i<TAM; i++){
+			if(piloto[i].qtdCampeonatosGanhos>maior3 && piloto[i].qtdCampeonatosGanhos<maior2 ){
+	    		maior3 = piloto[i].qtdCampeonatosGanhos;
+	    		piloto[2][].EhCraque = piloto[i].nome
+			}
+		}
+		printf("\nPOSICAO --- NOME ");
+		for(i=0; i<3; i++){
+			
+			printf("%i    %s\n", i ,piloto[i].EhCraque);
+			
+		}
+		
+	}
 		
