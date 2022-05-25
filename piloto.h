@@ -4,6 +4,7 @@
 
 // Functions Loading:
 	void cadastramento_piloto();
+	void editar_piloto();
 	void excluir_piloto();
 	void abrir();
 	void criar();
@@ -35,7 +36,7 @@
 	/* Handling with Files: 
 	==========================================================================================================*/
 		void abrir() {
-			filePointer = fopen("pilotos.txt", "r+");
+			filePointer = fopen("arquivo_pilotos.txt", "r+");
 			
 			if(filePointer == NULL) {
 				criar();
@@ -45,7 +46,7 @@
 		}
 		
 		void criar() {
-			filePointer = fopen("pilotos.txt", "w");
+			filePointer = fopen("arquivo_pilotos.txt", "w");
 
 			if(filePointer == NULL) {
 				printf("Erro ao criar o arquivo!");   
@@ -67,10 +68,12 @@
 				scanf("%i", &length);
 			
 			// Definindo a estrutura a ser utilizada e seu apelido:
-				struct piloto p[length];
+				//struct piloto p[length];
 				
+				struct piloto* p = malloc (length * sizeof * p);
+							
 			// Definindo um ponteiro para p[]:
-				pilotoPointer = &p[0];
+				pilotoPointer = p;
 			
 			// Criando/Abrindo o Arquivo TXT:
 				abrir();
@@ -79,7 +82,7 @@
 				fseek(filePointer, 0, SEEK_END);
 				
 			// Impressao de qual tarefa sera realizada:
-				printf("\n\t\t ================= CADASTRAMENTO DE PILOTO =================\n");
+				printf("\n\t\t ========== CADASTRAMENTO DE PILOTO ==========\n");
 			
 			// Insercoes:
 				// Coleta de dados:
@@ -137,6 +140,7 @@
 					
 				// Adicao ao arquivo txt:
 					for (n=0; n<length; n++) {
+						fprintf(filePointer, "%s\n", "INSERCAO DE DADOS FEITA NO CADASTRAMENTO DE PILOTO:");
 						fprintf(filePointer, "%s", p[n].nome);
 						fprintf(filePointer, "%s", p[n].nacionalidade);
 						fprintf(filePointer, "%s", p[n].corPele);
@@ -151,17 +155,49 @@
 					}
 					
 				//Fechando o arquivo TXT:
-					fechar();		
+					fechar();
+					
+				// Limpando o buffer do teclado:
+					fflush(stdin);
+					
+				// Limpando tela:
+					system("cls");	
 		}
 	
 	// Edicao do Piloto:
-		void edicao_piloto() {			
+		void edicao_piloto() {
+			// Limpando o buffer do teclado:
+				fflush(stdin);
+			
+			// Impressao de qual tarefa sera realizada:
+				printf("\n\t\t ============= EDICAO DE PILOTO =============\n"); 
+					
 			// Impressão do array:
 				int n;
 				
 				for(n=0; n<length; n++) {
-					printf("%s\n%s\n%s\n%s\n%s\n%i\n%i\n%i\n%i\n%i\n%i\r\n", *(pilotoPointer+n).nome, *((pilotoPointer+n).nacionalidade), *((pilotoPointer+n).corPele), p.corOlhos, p.corCabelo, p.altura, p.peso, p.idade, p.qtdCampeonatosGanhos, p.polePosition, p.qtdVoltasRap );
+					printf("\n\t\t Grupo %i\r\n", n);
+					
+					printf("\t\t Nome: %s", (pilotoPointer+n)->nome);
+					printf("\t\t Nacionalidade: %s", (pilotoPointer+n)->nacionalidade);
+					printf("\t\t Cor de Pele:%s", (pilotoPointer+n)->corPele);
+					printf("\t\t Cor dos Olhos: %s", (pilotoPointer+n)->corOlhos);
+					printf("\t\t Cor do Cabelo: %s", (pilotoPointer+n)->corCabelo);
+					printf("\t\t Altura: %i\n", (pilotoPointer+n)->altura);
+					printf("\t\t Peso: %i\n", (pilotoPointer+n)->peso);
+					printf("\t\t Idade: %i\n", (pilotoPointer+n)->idade);
+					printf("\t\t Qtd de Campeonatos Ganhos: %i\n", (pilotoPointer+n)->qtdCampeonatosGanhos);
+					printf("\t\t Pole Position: %i\n", (pilotoPointer+n)->polePosition);
+					printf("\t\t Qtd de Voltas Rapidas: %i\r\n", (pilotoPointer+n)->qtdVoltasRap);
 				}
+				
+			// Definição da posição do grupo:
+				int edition_choice;
+				
+				printf("\n\t\t Insira em qual dos grupos deseja realizar a alteracao: ");
+				scanf("%i", edition_choice);
+				
+			
 		}
 	
 	// Exclusao do Piloto:

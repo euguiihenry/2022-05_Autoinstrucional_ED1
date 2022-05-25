@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "piloto.h"
 
 void cadastramento_equipe() {   //FUNCAO DE CADASTRAMENTO
       int i;
@@ -112,6 +113,14 @@ void cadastramento_equipe() {   //FUNCAO DE CADASTRAMENTO
                   break;
             }
       }
+}
+
+void cadastrar() {
+	cadastramento_piloto();
+}
+
+void editar() {
+	edicao_piloto();
 }
 
 void sair() {

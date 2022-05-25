@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include "Methods.h"
-#include "piloto.h"
 
 // Menu Principal:
 	int main() {
@@ -25,10 +24,11 @@
 				
 				switch(count){
 					case 1:
-						//cadastramento_equipe();
-						cadastramento_piloto();
+						cadastrar();
+						break;
+						
 					case 2: 
-						//editar();
+						editar();
 						break;
 					
 					case 3: 
