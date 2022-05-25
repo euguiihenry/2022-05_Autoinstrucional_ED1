@@ -120,14 +120,20 @@ void fechar();
 					
 				//fechando o arquivo TXT
 					fechar();
-					
-					
-// edicao do carro:			
+							
+							
+//exclusao do carro:
+void excluirCarro(){
+	char carro;
+	do{
+		printf("Digite o tipo de carro (fim para sair): ");
+		scanf("%f", nome);
+		if()
+	}while()
+}
 
 
-//inclusao do carro:
-
-
-// Impressao do carro:		
+// Impressao do carro:
+		
 					
 }
