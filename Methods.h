@@ -123,6 +123,14 @@ void editar() {
 	edicao_piloto();
 }
 
+void excluir() {
+	excluir_piloto();
+}
+
+void imprimir() {
+	imprimir_piloto();
+}
+
 void sair() {
 	printf("\n\t\t Bye-bye :)");
 	//system("exit");

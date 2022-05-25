@@ -32,11 +32,11 @@
 						break;
 					
 					case 3: 
-						//excluir();
+						excluir();
 						break;
 					
 					case 4:
-						//imprimir();
+						imprimir();
 						break;
 					
 					case 5:

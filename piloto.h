@@ -4,7 +4,8 @@
 
 // Functions Loading:
 	void cadastramento_piloto();
-	void editar_piloto();
+	void edicao_piloto();
+	void imprimir_piloto();
 	void excluir_piloto();
 	void abrir();
 	void criar();
@@ -168,36 +169,256 @@
 		void edicao_piloto() {
 			// Limpando o buffer do teclado:
 				fflush(stdin);
+				
+			// Criando/Abrindo o Arquivo TXT:
+				abrir();
+				
+			// Setando o ponteiro ao final do arquivo:
+				fseek(filePointer, 0, SEEK_END);
 			
 			// Impressao de qual tarefa sera realizada:
 				printf("\n\t\t ============= EDICAO DE PILOTO =============\n"); 
 					
-			// Impressão do array:
-				int n;
-				
-				for(n=0; n<length; n++) {
-					printf("\n\t\t Grupo %i\r\n", n);
+			// Chacando se a variavel possui dados:
+				if(pilotoPointer != NULL) {
+					// Impressão do array:
+						int n;
+						
+						for(n=0; n<length; n++) {
+							printf("\n\t\t Grupo %i:\r\n", n);
+							
+							printf("\t\t Nome: %s", (pilotoPointer+n)->nome);
+							printf("\t\t Nacionalidade: %s", (pilotoPointer+n)->nacionalidade);
+							printf("\t\t Cor de Pele: %s", (pilotoPointer+n)->corPele);
+							printf("\t\t Cor dos Olhos: %s", (pilotoPointer+n)->corOlhos);
+							printf("\t\t Cor do Cabelo: %s", (pilotoPointer+n)->corCabelo);
+							printf("\t\t Altura: %i\n", (pilotoPointer+n)->altura);
+							printf("\t\t Peso: %i\n", (pilotoPointer+n)->peso);
+							printf("\t\t Idade: %i\n", (pilotoPointer+n)->idade);
+							printf("\t\t Qtd de Campeonatos Ganhos: %i\n", (pilotoPointer+n)->qtdCampeonatosGanhos);
+							printf("\t\t Pole Position: %i\n", (pilotoPointer+n)->polePosition);
+							printf("\t\t Qtd de Voltas Rapidas: %i\r\n", (pilotoPointer+n)->qtdVoltasRap);
+						}
+						
+					// Limpando o buffer do teclado:
+						fflush(stdin);
+						
+					// Definição da posição do grupo:
+						int edition_group;
+						
+						printf("\n\t\t Insira em qual dos grupos deseja realizar a alteracao: ");
+						scanf("%i", &edition_group);
+											
+					// Limpando o buffer do teclado:
+						fflush(stdin);	
+						
+					// Selecionando o grupo e a parte de edicao:
+						int edition_choice;
+						
+						printf("\n\t\t ======================================\n\t\t");
+						printf("\n\t\t O grupo selecionado foi:\n");
+						
+						printf("\n\t\t 1. Nome: %s", (pilotoPointer+edition_group)->nome);
+						printf("\t\t 2. Nacionalidade: %s", (pilotoPointer+edition_group)->nacionalidade);
+						printf("\t\t 3. Cor de Pele: %s", (pilotoPointer+edition_group)->corPele);
+						printf("\t\t 4. Cor dos Olhos: %s", (pilotoPointer+edition_group)->corOlhos);
+						printf("\t\t 5. Cor do Cabelo: %s", (pilotoPointer+edition_group)->corCabelo);
+						printf("\t\t 6. Altura: %i\n", (pilotoPointer+edition_group)->altura);
+						printf("\t\t 7. Peso: %i\n", (pilotoPointer+edition_group)->peso);
+						printf("\t\t 8. Idade: %i\n", (pilotoPointer+edition_group)->idade);
+						printf("\t\t 9. Qtd de Campeonatos Ganhos: %i\n", (pilotoPointer+edition_group)->qtdCampeonatosGanhos);
+						printf("\t\t 10. Pole Position: %i\n", (pilotoPointer+edition_group)->polePosition);
+						printf("\t\t 11. Qtd de Voltas Rapidas: %i\r\n", (pilotoPointer+edition_group)->qtdVoltasRap);
+						
+						printf("\n\t\t Selecione um numero para editar uma informacao: ");
+						scanf("%i", &edition_choice);
+						
+						// Limpando o buffer do teclado:
+							fflush(stdin);
+						
+					// Editando:					
+						switch (edition_choice) {
+							case 1:							
+								printf("Insira o novo nome: ");
+								scanf("%s\n", ((pilotoPointer+edition_group)->nome), stdin);
+									
+								break;
+							case 2:
+								printf("Insira a nova nacionalidade: ");
+								scanf("%s\n", ((pilotoPointer+edition_group)->nacionalidade), stdin);
+								
+								break;
+							case 3:
+								printf("Insira a nova cor de pele: ");
+								scanf("%s\n", ((pilotoPointer+edition_group)->corPele), stdin);
+								
+								break;
+							case 4:
+								printf("Insira a nova cor dos olhos: ");
+								scanf("%s\n", ((pilotoPointer+edition_group)->corOlhos), stdin);
+								
+								break;
+							case 5:
+								printf("Insira a nova cor de cabelo: ");
+								scanf("%s\n", ((pilotoPointer+edition_group)->corCabelo), stdin);
+								
+								break;
+							case 6:
+								printf("Insira a nova altura: ");
+								scanf("%i", ((pilotoPointer+edition_group)->altura));
+								
+								break;
+							case 7:
+								printf("Insira o novo peso: ");
+								scanf("%i", ((pilotoPointer+edition_group)->peso));
+								
+								break;
+							case 8:
+								printf("Insira a nova idade: ");
+								scanf("%i", ((pilotoPointer+edition_group)->idade));
+								
+								break;
+							case 9:
+								printf("Insira a nova quantidade de campeonatos ganhos: ");
+								scanf("%i", ((pilotoPointer+edition_group)->qtdCampeonatosGanhos));
+								
+								break;
+							case 10:
+								printf("Insira a nova pole position: ");
+								scanf("%i", ((pilotoPointer+edition_group)->polePosition));
+								
+								break;
+							case 11:
+								printf("Insira a nova quantidade de voltas rapidas: ");
+								scanf("%i", ((pilotoPointer+edition_group)->qtdVoltasRap));
+								
+								break;					
+						}
+						
+						// Gravando no arquivo txt:
+							for (n=0; n<length; n++) {
+								fprintf(filePointer, "%s\n", "INSERCAO DE DADOS FEITA NA EDICAO DE PILOTO:");
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->nome));
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->nacionalidade));
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->corPele));
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->corOlhos));
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->corCabelo));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->altura));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->peso));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->idade));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->qtdCampeonatosGanhos));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->polePosition));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->qtdVoltasRap));
+							}
 					
-					printf("\t\t Nome: %s", (pilotoPointer+n)->nome);
-					printf("\t\t Nacionalidade: %s", (pilotoPointer+n)->nacionalidade);
-					printf("\t\t Cor de Pele:%s", (pilotoPointer+n)->corPele);
-					printf("\t\t Cor dos Olhos: %s", (pilotoPointer+n)->corOlhos);
-					printf("\t\t Cor do Cabelo: %s", (pilotoPointer+n)->corCabelo);
-					printf("\t\t Altura: %i\n", (pilotoPointer+n)->altura);
-					printf("\t\t Peso: %i\n", (pilotoPointer+n)->peso);
-					printf("\t\t Idade: %i\n", (pilotoPointer+n)->idade);
-					printf("\t\t Qtd de Campeonatos Ganhos: %i\n", (pilotoPointer+n)->qtdCampeonatosGanhos);
-					printf("\t\t Pole Position: %i\n", (pilotoPointer+n)->polePosition);
-					printf("\t\t Qtd de Voltas Rapidas: %i\r\n", (pilotoPointer+n)->qtdVoltasRap);
+					// Fechando o arquivo txt:
+						fechar();
+						
+				} else {
+					printf("\n\t\t Primeiramente, faca um cadastramento de\n\t\t piloto para que consiga realizar uma edicao!");
 				}
+		}
+	
+	// Exclusao do Piloto:
+		void excluir_piloto() {
+			// Limpando o buffer do teclado:
+				fflush(stdin);
 				
-			// Definição da posição do grupo:
-				int edition_choice;
+			// Criando/Abrindo o Arquivo TXT:
+				abrir();
 				
-				printf("\n\t\t Insira em qual dos grupos deseja realizar a alteracao: ");
-				scanf("%i", edition_choice);
-				
+			// Setando o ponteiro ao final do arquivo:
+				fseek(filePointer, 0, SEEK_END);
 			
+			// Impressao de qual tarefa sera realizada:
+				printf("\n\t\t ============= EXCLUSAO DE PILOTO =============\n"); 
+					
+			// Chacando se a variavel possui dados:
+				if(pilotoPointer != NULL) {
+					// Impressão do array:
+						int n;
+						
+						for(n=0; n<length; n++) {
+							printf("\n\t\t Grupo %i:\r\n", n);
+							
+							printf("\t\t Nome: %s", (pilotoPointer+n)->nome);
+							printf("\t\t Nacionalidade: %s", (pilotoPointer+n)->nacionalidade);
+							printf("\t\t Cor de Pele: %s", (pilotoPointer+n)->corPele);
+							printf("\t\t Cor dos Olhos: %s", (pilotoPointer+n)->corOlhos);
+							printf("\t\t Cor do Cabelo: %s", (pilotoPointer+n)->corCabelo);
+							printf("\t\t Altura: %i\n", (pilotoPointer+n)->altura);
+							printf("\t\t Peso: %i\n", (pilotoPointer+n)->peso);
+							printf("\t\t Idade: %i\n", (pilotoPointer+n)->idade);
+							printf("\t\t Qtd de Campeonatos Ganhos: %i\n", (pilotoPointer+n)->qtdCampeonatosGanhos);
+							printf("\t\t Pole Position: %i\n", (pilotoPointer+n)->polePosition);
+							printf("\t\t Qtd de Voltas Rapidas: %i\r\n", (pilotoPointer+n)->qtdVoltasRap);
+						}
+						
+					// Limpando o buffer do teclado:
+						fflush(stdin);
+						
+					// Definição da posição do grupo:
+						int exclusion_group;
+						
+						printf("\n\t\t Escolha qual grupo deseja deletar: ");
+						scanf("%i", &exclusion_group);
+											
+					// Limpando o buffer do teclado:
+						fflush(stdin);	
+						
+					// Grupo selecionado para exclusao:
+						printf("\n\t\t ======================================\n\t\t");
+						printf("\n\t\t O grupo selecionado foi:\n");
+						
+						printf("\n\t\t Nome: %s", (pilotoPointer+exclusion_group)->nome);
+						printf("\t\t Nacionalidade: %s", (pilotoPointer+exclusion_group)->nacionalidade);
+						printf("\t\t Cor de Pele: %s", (pilotoPointer+exclusion_group)->corPele);
+						printf("\t\t Cor dos Olhos: %s", (pilotoPointer+exclusion_group)->corOlhos);
+						printf("\t\t Cor do Cabelo: %s", (pilotoPointer+exclusion_group)->corCabelo);
+						printf("\t\t Altura: %i\n", (pilotoPointer+exclusion_group)->altura);
+						printf("\t\t Peso: %i\n", (pilotoPointer+exclusion_group)->peso);
+						printf("\t\t Idade: %i\n", (pilotoPointer+exclusion_group)->idade);
+						printf("\t\t Qtd de Campeonatos Ganhos: %i\n", (pilotoPointer+exclusion_group)->qtdCampeonatosGanhos);
+						printf("\t\t Pole Position: %i\n", (pilotoPointer+exclusion_group)->polePosition);
+						printf("\t\t Qtd de Voltas Rapidas: %i\r\n", (pilotoPointer+exclusion_group)->qtdVoltasRap);
+						
+						printf("\n\t\t O grupo selecionado será removido no momento de gravação no arquivo!");
+						
+					// Excluindo:
+						// Gravando no arquivo txt:
+							for (n=0; n<length; n++) {
+								if (length == exclusion_group) {
+									n++;
+								}
+								
+								fprintf(filePointer, "%s\n", "INSERCAO DE DADOS FEITA ATRAVES DA EXCLUSAO DE PILOTO:");
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->nome));
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->nacionalidade));
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->corPele));
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->corOlhos));
+								fprintf(filePointer, "%s", ((pilotoPointer+n)->corCabelo));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->altura));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->peso));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->idade));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->qtdCampeonatosGanhos));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->polePosition));
+								fprintf(filePointer, "%i\n", ((pilotoPointer+n)->qtdVoltasRap));
+							}
+					
+					// Fechando o arquivo txt:
+						fechar();
+						
+				} else {
+					printf("\n\t\t Primeiramente, faca um cadastramento de\n\t\t piloto para que consiga realizar uma exclusao!");
+				}
+		}
+		
+	// Leitura de Arquivo:
+		void imprimir_piloto() {
+			system("cls");
+			printf("========== IMPRESSAO DADOS DO ARQUIVO PILOTO ==========\n\n");
+			system(" type arquivo_pilotos.txt");
+			printf("\n\n============================== FIM ==============================\n\t\t");
 		}
 	
 	// Exclusao do Piloto:
