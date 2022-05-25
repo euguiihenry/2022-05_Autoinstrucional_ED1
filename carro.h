@@ -124,11 +124,11 @@ void fechar();
 					
 //exclusao do carro:
 void excluirCarro(){
-	char carro;
-	void strlen (nome);
+	flag = 0; 
+	void strlen (carro);
 		
 	for(int x = 0; x < strlen; x++){
-			if(nome[x] < '0' || nome[x] > '9'){
+			if(carro[x] < '0' || carro[x] > '9'){
 			flag = 1;
 			break;
 		}
