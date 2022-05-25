@@ -124,7 +124,8 @@ void fechar();
 					
 // edicao do carro:			
 
-//enclusao do carro:
+
+//inclusao do carro:
 
 
 // Impressao do carro:		
