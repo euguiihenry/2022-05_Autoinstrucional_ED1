@@ -114,6 +114,76 @@ void fechar();
 		
 	
 	// Exclusao do Piloto:
+void excluir_piloto(void){
+	
+	int i,TAM=100, continuar;
+	char nome_busca[50];
+	system("cls");
+	printf("\n\n");   
+	printf("\t\t ~~~~~~~~~~~~~~~~  EXCLUIR  ~~~~~~~~~~~~~~~~\n\n");
+	printf("\n\n");
+	printf("\n\n");
+	fflush(stdin); //Limpar Buffer do Teclado
+	
+	printf(" Informe o <Nome Completo> %c   ",26);
+	     
+	int nao_tem=999;
+	gets(nome_busca);
+	for(i=0; i<TAM; i++){
+	     	if(strcmp(piloto[i].nome,nome_busca) = 0){
+			int y;
+	     		for(y=i; i<TAM; y++){
+	     	 		piloto[y].nome = piloto[y+1].nome;
+	     	 		piloto[y].altura = piloto[y+1].altura;
+	     	 		piloto[y].corCabelo = piloto[y+1].corCabelo;
+	     	 		piloto[y].corOlhos = piloto[y+1].corOlhos;
+	     	 		piloto[y].corPele = piloto[y+1].corPele;
+	     	 		piloto[y].idade = piloto[y+1].idade;
+	     	 		piloto[y].nacionalidade = piloto[y+1].nacionalidade;
+	     	 		piloto[y].peso = piloto[y+1].peso;
+	     	 		piloto[y].polePosition = piloto[y+1].polePosition;
+	     	 		piloto[y].qtdCampeonatosGanhos = piloto[y+1].qtdCampeonatosGanhos;
+	     	 		piloto[y].qtdVoltasRap = piloto[y+1].qtdVoltasRap;
+	     	 		
+	     	 		system("cls");
+                    		printf("\n\n   Exclusco conclu%cda com sucesso! \n\n\n",3782,3745);
+                      
+                    		printf("\n\n");
+                    		printf("\n\n");
+                    
+                    		count--;
+            		}
+                    
+		}else{
+			system("cls");
+	     		printf("\n  n?o foi encontrado nenhum dado correspondente. \n\n");
+	     		printf("  Certifique-se de que todas as palavras estejam escritas corretamente.\n\n\n\n\n\n");
+				  	
+		}
+			
+	}
+				  
+	system("PAUSE");                
+	system("cls");
+	printf("\t\tDeseja continuar?   \n\n");
+	printf(" 1 - Sim   \n\n 2 - n?o\n\n");
+	scanf("%d",&continuar);
+			
+	while(continuar!=1 && continuar!=2){
+		system("cls");
+		printf("\t\tDeseja continuar?   \n\n");
+		printf(" 1 - Sim   \n\n 2 - n?o\n\n");
+		scanf("%d",&continuar);                   
+	}
+			
+	if(continuar==1){
+		EXCLUIR();
+	}
+	system("CLS");   
+	     	 	
+			
+	     	
+}
 		
 	
 	// Impressao do Piloto:
