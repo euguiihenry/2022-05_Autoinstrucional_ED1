@@ -121,15 +121,18 @@ void fechar();
 				//fechando o arquivo TXT
 					fechar();
 							
-							
+					
 //exclusao do carro:
 void excluirCarro(){
 	char carro;
-	do{
-		printf("Digite o tipo de carro (fim para sair): ");
-		scanf("%f", nome);
-		if()
-	}while()
+	void strlen (nome);
+		
+	for(int x = 0; x < strlen; x++){
+			if(nome[x] < '0' || nome[x] > '9'){
+			flag = 1;
+			break;
+		}
+	}
 }
 
 
