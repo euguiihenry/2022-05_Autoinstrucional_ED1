@@ -235,6 +235,11 @@ void excluirCarro(){
 
 
 // Impressao do carro:
-		
+void imprimir_carro() {
+			system("cls");
+			printf("========== IMPRESSAO DADOS DO ARQUIVO CARRO ==========\n\n");
+			system(" type arquivo_carro.txt");
+			printf("\n\n============================== FIM ==============================\n\t\t");
+		}
 					
 
