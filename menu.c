@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "cadastra_piloto.h"
-//#include "edita_piloto.h"
+#include "edita_piloto.h"
 
 int main() {
 	int choice;
@@ -12,6 +12,7 @@ int main() {
 	printf("\t\t 2. Editar.\n");
 	printf("\t\t 3. Excluir.\n");
 	printf("\t\t 4. Imprimir.\n");
+	printf("\t\t 5. Sair.\n");
 	printf("\n\t\t Opcao escolhida: ");
 	scanf("%i", &choice);
 	
@@ -20,7 +21,7 @@ int main() {
 			cadastrar_piloto();
 			break;
 		case 2:
-			//editar_piloto();
+			editar_piloto();
 			break;
 		case 3:
 			break;
