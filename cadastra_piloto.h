@@ -1,11 +1,16 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-//#include "codigos_comuns.h"
+#include <ctype.h>
+#include <string.h>
 #define TAM 20
 
-// Carregando a funcao:
+/* Carregando funcoes:
+==========================================================================================================*/
 	void cadastrar_piloto();
+	void abrir();
+	void criar();
+	void fechar();
 
 /* Struct:
 ==========================================================================================================*/
@@ -26,332 +31,367 @@
 			int  qtdVoltasRap;      			
 		};
 	
-	/* Variavel:
+	/* Variavel Global 1:
 	======================================================================================================*/
 		struct piloto p[TAM];
+	
+/* Lidando com arquivos:
+==========================================================================================================*/	
+	/* Variavel Global 2:
+	======================================================================================================*/
+		FILE *filePointer;
+		
+	/* Funcoes:
+	======================================================================================================*/
+		void abrir() {
+			filePointer = fopen("arquivo_pilotos.txt", "r+");
+			
+			if(filePointer == NULL) {
+				criar();
+				fechar();
+				abrir();          
+			}
+		}
+		
+		void criar() {
+			filePointer = fopen("arquivo_pilotos.txt", "w");
 
-void cadastrar_piloto() {
-	/* Variaveis:
-	======================================================================================================*/
-		int n; // Para uso no loop FOR.
-		int answer; // Controle do DO WHILE.
-		
-	/* Lidando com o arquivo de piloto.txt:
-	======================================================================================================*/
-		// Abrindo:
-			//abrir();
+			if(filePointer == NULL) {
+				printf("Erro ao criar o arquivo!");   
+				exit(1);             
+			}
+		}
+
+		void fechar() {
+			fclose(filePointer);
+		}
+/* Funcoes de Funcionalidades:
+==========================================================================================================*/	
+	void cadastrar_piloto() {
+		/* Variaveis:
+		======================================================================================================*/
+			int n; // Para uso no loop FOR.
+			int answer; // Controle do DO WHILE.
 			
-		// Setando o ponteiro ao final da ultima informacao:
-			//fseek(filePointer, 0, SEEK_END);
-			
-	/* Impressao da Tarefa:
-	======================================================================================================*/
-		printf("\n\t\t ========== CADASTRAMENTO DE PILOTO ==========\n");
-		
-	/* Insercoes:
-	======================================================================================================*/
-		/* Coleta de Dados:
-		==================================================================================================*/
-			int cont;
-			
-			do {				
-				/* Limpando o buffer do teclado:
-				==========================================================================================*/
-					fflush(stdin);
+		/* Lidando com o arquivo de piloto.txt:
+		======================================================================================================*/
+			// Abrindo:
+				abrir();
 				
-				/* Coleta:
-				==========================================================================================*/
-					/* Variavel de Controle (Se 0 = desativado, Se 1 = ativado)
-					======================================================================================*/
-						p[n].ativo = 1;
-						
-					/* Nome:
-					======================================================================================*/
-						do {
-							printf("\t\t Insira o nome do piloto: ");
-							fgets(p[n].nome, 50, stdin);
-							
-							if (p[n].nome == NULL) {
-								cont = 0;
-								printf("\nInsira algum dado do tipo texto!\n");
-								
-							} else {
-								cont = 1;
-							}
-						} while (cont == 0);
-						
-					/* Nacionalidade:
-					======================================================================================*/
-						do {						
-							printf("\t\t Insira a nacionalidade do piloto: ");
-							fgets(p[n].nacionalidade, 30, stdin);
-							
-							if (p[n].nacionalidade[0] == NULL) {
-								printf("\nInsira algum dado do tipo texto!\n");
-								cont = 0;
-								
-							} else {
-								cont = 1;
-							}
-						} while (cont == 0);
-						
-					/* Cor de Pele:
-					======================================================================================*/
-						do {
-							printf("\t\t Insira a cor de pele do piloto: ");
-							fgets(p[n].corPele, 30, stdin);
-							
-							if (p[n].corPele[0] == NULL) {
-								printf("\nInsira algum dado do tipo texto!\n");
-								cont = 0;
-								
-							} else {
-								cont = 1;
-							}
-						} while (cont == 0);
-						
-					/* Cor dos Olhos:
-					======================================================================================*/
-						do {
-							printf("\t\t Insira a cor dos olhos do piloto: ");
-							fgets(p[n].corOlhos, 30, stdin);
-							
-							if (p[n].corOlhos[0] == NULL) {
-								printf("\nInsira algum dado do tipo texto!\n");
-								cont = 0;
-								
-							} else {
-								cont = 1;
-							}
-						} while (cont == 0);
-						
-					/* Cor do Cabelo:
-					======================================================================================*/
-						do {
-							printf("\t\t Insira a cor do cabelo do piloto: ");
-							fgets(p[n].corCabelo, 30, stdin);
-							
-							if (p[n].corCabelo[0] == NULL) {
-								printf("\nInsira algum dado do tipo texto!\n");
-								cont = 0;
-								
-							} else {
-								cont = 1;
-							}
-						} while (cont == 0);
-						
-					/* Altura:
-					======================================================================================*/
-						do {
-							char aux[4];
-							
-							printf("\t\t Insira a altura do piloto: (cm) ");
-							fgets(aux, 4, stdin);
-							
-							int x;
-													
-							for (x=0; x<4; x++) {
-								if ((aux[x] >= 65 || aux[x] <= 90) || aux[x] == 44) {
-									printf("\nInsira apenas numeros. E obedeca o formado em centimetros!\n");
-									cont = 0;
-									break;
-								} 
-							}
-							
-							if (aux[0] == NULL) {
-								printf("\nInsira algum dado do tipo numerico!\n");
-								cont = 0;
-								
-							} else {
-								p[n].altura = aux;
-								cont = 1;
-							}
-							
-							/* Limpando o buffer do teclado:
-							==============================================================================*/
-								fflush(stdin);
-							
-						} while (cont == 0);
-						
-					/* Peso:
-					======================================================================================*/
-						do {
-							char aux[4];
-							
-							printf("\t\t Insira o peso do piloto: ");
-							fgets(aux, 4, stdin);
-							
-							int x;
-													
-							for (x=0; x<4; x++) {
-								if ((aux[x] >= 65 || aux[x] <= 90) || aux[x] == 44) {
-									printf("\nInsira apenas numeros.\n");
-									cont = 0;
-									break;
-								} 
-							}
-							
-							if (aux[0] == NULL) {
-								printf("\nInsira algum dado do tipo numerico!\n");
-								cont = 0;
-								
-							} else {
-								p[n].peso = aux;
-								cont = 1;
-							}
-							
-							/* Limpando o buffer do teclado:
-							==============================================================================*/
-								fflush(stdin);
-								
-						} while (cont == 0);
-						
-					/* Idade:
-					======================================================================================*/
-						do {
-							char aux[4];
-							
-							printf("\t\t Insira a idade do piloto: ");
-							fgets(aux, 4, stdin);
-							
-							int x;
-													
-							for (x=0; x<4; x++) {
-								if ((aux[x] >= 65 || aux[x] <= 90) || aux[x] == 44) {
-									printf("\nInsira apenas numeros. E obedeca o formado em centimetros!\n");
-									cont = 0;
-									break;
-								} 
-							}
-							
-							if (aux[0] == NULL) {
-								printf("\nInsira algum dado do tipo numerico!\n");
-								cont = 0;
-								
-							} else {
-								p[n].idade = aux;
-								cont = 1;
-							}
-							
-							/* Limpando o buffer do teclado:
-							==============================================================================*/
-								fflush(stdin);
-								
-						} while (cont == 0);
-						
-					/* Qtd de Campeonatos Ganhos:
-					======================================================================================*/
-						do {
-							char aux[4];
-							
-							printf("\t\t Insira a quantidade de campeonatos ganhos pelo piloto: ");
-							fgets(aux, 4, stdin);
-							
-							int x;
-													
-							for (x=0; x<4; x++) {
-								if ((aux[x] >= 65 || aux[x] <= 90) || aux[x] == 44) {
-									printf("\nInsira apenas numeros. E obedeca o formado em centimetros!\n");
-									cont = 0;
-									break;
-								} 
-							}
-							
-							if (aux == NULL) {
-								printf("\nInsira algum dado do tipo numerico!\n");
-								cont = 0;
-								
-							} else {
-								p[n].qtdCampeonatosGanhos = aux;
-								cont = 1;
-							}
-							
-							/* Limpando o buffer do teclado:
-							==============================================================================*/
-								fflush(stdin);
-								
-						} while (cont == 0);
-						
-					/* Pole Position:
-					======================================================================================*/
-						do {
-							char aux[4];
-							
-							printf("\t\t Insira a posicao de largada do piloto: ");
-							fgets(aux, 4, stdin);
-							
-							int x;
-													
-							for (x=0; x<4; x++) {
-								if ((aux[x] >= 65 || aux[x] <= 90) || aux[x] == 44) {
-									printf("\nInsira apenas numeros. E obedeca o formado em centimetros!\n");
-									cont = 0;
-									break;
-								} 
-							}
-							
-							if (aux == NULL) {
-								printf("\nInsira algum dado do tipo numerico!\n");
-								cont = 0;
-								
-							} else {
-								p[n].polePosition = aux;
-								cont = 1;
-							}
-							
-							/* Limpando o buffer do teclado:
-							==============================================================================*/
-								fflush(stdin);
-								
-						} while (cont == 0);
-						
-					/* Qtd de Voltas Mais Rapidas:
-					======================================================================================*/
-						do {
-							char aux[4];
-							
-							printf("\t\t Insira a quantidade de voltas mais rapidas feitas pelo piloto: ");
-							fgets(aux, 4, stdin);
-							
-							int x;
-													
-							for (x=0; x<4; x++) {
-								if ((aux[x] >= 65 || aux[x] <= 90) || aux[x] == 44) {
-									printf("\nInsira apenas numeros. E obedeca o formado em centimetros!\n");
-									cont = 0;
-									break;
-								} 
-							}
-							
-							if (aux == NULL) {
-								printf("\nInsira algum dado do tipo numerico!\n");
-								cont = 0;
-								
-							} else {
-								p[n].qtdVoltasRap = aux;
-								cont = 1;
-							}
-							
-							/* Limpando o buffer do teclado:
-							==============================================================================*/
-								fflush(stdin);
-								
-						} while (cont == 0);
-						
-					/* Pulando uma linha:
-					======================================================================================*/
-						printf("\n");	
+			// Setando o ponteiro ao final da ultima informacao:
+				fseek(filePointer, 0, SEEK_END);
 				
-					/* Atualizando n:
-					======================================================================================*/
-						printf("Deseja cadastrar mais um piloto: (Digite '1' para sim OU '2' para nao)");
-						scanf("%i", &answer);
+		/* Impressao da Tarefa:
+		======================================================================================================*/
+			printf("\n\t\t ========== CADASTRAMENTO DE PILOTO ==========\n");
+			
+		/* Insercoes:
+		======================================================================================================*/
+			/* Coleta de Dados:
+			==================================================================================================*/
+				do {
+					/* Variavel de controle:
+					==========================================================================================*/
+						int cont = 0;			
 						
-						if (answer == 1) {
-							n++;
+					/* Limpando o buffer do teclado:
+					==========================================================================================*/
+						fflush(stdin);
+					
+					/* Coleta:
+					==========================================================================================*/
+						/* Variavel de Controle (Se 0 = desativado, Se 1 = ativado)
+						======================================================================================*/
+							p[n].ativo = 1;
 							
-						} else {
-							printf("\nCadastramento finalizado!");
-						}
-			} while (answer == 1);
-}
+						/* Nome:
+						======================================================================================*/
+							do {
+								char aux[50];
+								cont = 0;
+									
+								printf("\n\t\t Insira o nome do piloto: ");
+								fgets(aux, 50, stdin);
+								
+								if (strlen(aux) == 1) {
+									printf("\n\t\t Insira algum dado do tipo texto!\n");
+									cont = 1;
+								} else {
+									for(int x=0; x<strlen(aux); x++) {
+										p[n].nome[x] = aux[x];
+									}
+									cont = 2;
+								}
+								
+							} while (cont < 2);
+							
+						/* Nacionalidade:
+						======================================================================================*/
+							do {
+								char aux[30];
+								cont = 0;
+														
+								printf("\t\t Insira a nacionalidade do piloto: ");
+								fgets(aux, 30, stdin);
+								
+								if (strlen(aux) == 1) {
+									printf("\n\t\t Insira algum dado do tipo texto!\n\n");
+									cont = 1;
+									
+								}else {
+									for(int x=0; x<strlen(aux); x++) {
+										p[n].nacionalidade[x] = aux[x];
+									}
+									cont = 2;	
+								}
+							} while (cont < 2);
+							
+						/* Cor de Pele:
+						======================================================================================*/
+							do {
+							char aux[30];
+								cont = 0;
+								
+								printf("\t\t Insira a cor de pele do piloto: ");
+								fgets(aux, 30, stdin);
+								
+								if (strlen(aux) == 1) {
+									printf("\n\t\t Insira algum dado do tipo texto!\n\n");
+									cont = 1;
+									
+								} else {
+									for(int x=0; x<strlen(aux); x++) {
+										p[n].corPele[x] = aux[x];
+									}
+									cont = 2;
+								}
+							} while (cont < 2);
+							
+						/* Cor dos Olhos:
+						======================================================================================*/
+							do {
+								char aux[30];
+								cont = 0;
+								
+								printf("\t\t Insira a cor dos olhos do piloto: ");
+								fgets(aux, 30, stdin);
+								
+								if (strlen(aux) == 1) {
+									printf("\n\t\t Insira algum dado do tipo texto!\n\n");
+									cont = 1;
+									
+								} else {
+									for(int x=0; x<strlen(aux); x++) {
+										p[n].corOlhos[x] = aux[x];
+									}
+									cont = 2;
+								}								
+							} while (cont < 2);
+							
+						/* Cor do Cabelo:
+						======================================================================================*/
+							do {	
+								char aux[30];
+								cont = 0;
+								
+								printf("\t\t Insira a cor do cabelo do piloto: ");
+								fgets(aux, 30, stdin);
+								
+								if (strlen(aux) == 1) {
+									printf("\n\t\t Insira algum dado do tipo texto!\n\n");
+									cont = 0;
+									
+								} else {
+									for(int x=0; x<strlen(aux); x++) {
+										p[n].corCabelo[x] = aux[x];
+									}
+									cont = 2;
+								}
+							} while (cont < 2);
+							
+						/* Altura:
+						======================================================================================*/
+							do {
+								char aux[4];
+								int entrada;
+								cont = 0;
+								
+								printf("\t\t Insira a altura do piloto (cm): ");
+								fgets(aux, 4, stdin);
+								
+								if (isdigit(aux[1])) {
+									entrada = atoi(aux);
+									p[n].altura = entrada;
+									cont = 2;
+								} else {
+									printf("\n\t\t Insira apenas numeros. E obedeca o formado em centimetros!\n\n");
+									cont = 1;
+								}
+								
+								/* Limpando o buffer do teclado:
+								==============================================================================*/
+									fflush(stdin);
+								
+							} while (cont < 2);
+							
+						/* Peso:
+						======================================================================================*/
+							do {
+								char aux[4];
+								int entrada;
+								cont = 0;
+								
+								printf("\t\t Insira o peso do piloto: ");
+								fgets(aux, 4, stdin);
+								
+								if (isdigit(aux[1])) {
+									entrada = atoi(aux);
+									p[n].peso = entrada;
+									cont = 2;
+								} else {
+									printf("\n\t\t Insira apenas numeros!\n\n");
+									cont = 1;
+								}
+								
+								/* Limpando o buffer do teclado:
+								==============================================================================*/
+									fflush(stdin);
+									
+							} while (cont < 2);
+							
+						/* Idade:
+						======================================================================================*/
+							do {	
+								char aux[4];
+								int entrada;
+								cont = 0;
+								
+								printf("\t\t Insira a idade do piloto: ");
+								fgets(aux, 4, stdin);
+								
+								if (isdigit(aux[1])) {
+									entrada = atoi(aux);
+									p[n].idade = entrada;
+									cont = 2;
+								} else {
+									printf("\n\t\t Insira apenas numeros com dois decimais!\n\t\t Nao insira numeros quebrados\n\n");
+									cont = 1;
+								}
+								
+								/* Limpando o buffer do teclado:
+								==============================================================================*/
+									fflush(stdin);
+									
+							} while (cont < 2);
+							
+						/* Qtd de Campeonatos Ganhos:
+						======================================================================================*/
+							do {
+								char aux[4];
+								int entrada;
+								cont = 0;
+								
+								printf("\t\t Insira a quantidade de campeonatos ganhos pelo piloto: ");
+								fgets(aux, 4, stdin);
+								
+								if (isdigit(aux[0])) {
+									entrada = atoi(aux);
+									p[n].qtdCampeonatosGanhos = entrada;
+									cont = 2;
+								} else {
+									printf("\n\t\t Insira apenas numeros!\n\n");
+									cont = 1;
+								}
+								
+								/* Limpando o buffer do teclado:
+								==============================================================================*/
+									fflush(stdin);
+									
+							} while (cont < 2);
+							
+						/* Pole Position:
+						======================================================================================*/
+							do {
+								char aux[4];
+								int entrada;
+								cont = 0;
+								
+								printf("\t\t Insira a posicao de largada do piloto: ");
+								fgets(aux, 4, stdin);
+								
+								if (isdigit(aux[0])) {
+									entrada = atoi(aux);
+									p[n].polePosition = entrada;
+									cont = 2;
+								} else {
+									printf("\n\t\t Insira apenas numeros!\n\n");
+									cont = 1;
+								}
+								
+								/* Limpando o buffer do teclado:
+								==============================================================================*/
+									fflush(stdin);
+									
+							} while (cont < 2);
+							
+						/* Qtd de Voltas Mais Rapidas:
+						======================================================================================*/
+							do {
+								char aux[4];
+								int entrada;
+								cont = 0;
+								
+								printf("\t\t Insira a quantidade de voltas mais rapidas feitas pelo piloto: ");
+								fgets(aux, 4, stdin);
+								
+								if (isdigit(aux[0])) {
+									entrada = atoi(aux);
+									p[n].qtdVoltasRap = entrada;
+									cont = 2;
+								} else {
+									printf("\n\t\t Insira apenas numeros!\n\n");
+									cont = 1;
+								}
+								
+								/* Limpando o buffer do teclado:
+								==============================================================================*/
+									fflush(stdin);
+									
+							} while (cont < 2);
+							
+						/* Pulando uma linha:
+						======================================================================================*/
+							printf("\n");	
+					
+						/* Atualizando n:
+						======================================================================================*/
+							printf("\t\t Deseja cadastrar mais um piloto\n\t\t (Digite '1' para sim OU '2' para nao): ");
+							scanf("%i", &answer);
+							
+							if (answer == 1) {
+								n++;
+								
+							} else {
+								printf("\n\t\t Cadastramento finalizado!");
+							}
+							
+			/* Inserindo dados no arquivo:
+			==================================================================================================*/
+				fprintf(filePointer, "%s\n", "Piloto Cadastrado:");
+				fprintf(filePointer, "%i\n", p[n].ativo);
+				fprintf(filePointer, "%s", p[n].nome);
+				fprintf(filePointer, "%s", p[n].nacionalidade);
+				fprintf(filePointer, "%s", p[n].corPele);
+				fprintf(filePointer, "%s", p[n].corOlhos);
+				fprintf(filePointer, "%s", p[n].corCabelo);
+				fprintf(filePointer, "%i\n", p[n].altura);
+				fprintf(filePointer, "%i\n", p[n].peso);
+				fprintf(filePointer, "%i\n", p[n].idade);
+				fprintf(filePointer, "%i\n", p[n].qtdCampeonatosGanhos);
+				fprintf(filePointer, "%i\n", p[n].polePosition);
+				fprintf(filePointer, "%i\r\n", p[n].qtdVoltasRap);
+							
+				} while (answer == 1);
+				
+				fechar();
+	}
