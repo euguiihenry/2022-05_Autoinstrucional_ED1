@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "cadastra_piloto.h"
+//#include "edita_piloto.h"
 
 int main() {
 	int choice;
@@ -19,6 +20,7 @@ int main() {
 			cadastrar_piloto();
 			break;
 		case 2:
+			//editar_piloto();
 			break;
 		case 3:
 			break;
