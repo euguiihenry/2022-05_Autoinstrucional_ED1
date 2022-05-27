@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include "cadastra_piloto.h"
+//#include "cadastra_piloto.h"
 #include "edita_piloto.h"
 
 int main() {
@@ -18,7 +18,7 @@ int main() {
 	
 	switch(choice) {
 		case 1:
-			cadastrar_piloto();
+			//cadastrar_piloto();
 			break;
 		case 2:
 			editar_piloto();

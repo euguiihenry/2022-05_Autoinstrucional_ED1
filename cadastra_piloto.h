@@ -17,6 +17,7 @@
 	/* Estrutura:
 	======================================================================================================*/
 		struct piloto {
+			int grupo;
 			int  ativo;
 			char nome[50];
 		    char nacionalidade[30];
@@ -100,6 +101,10 @@
 					
 					/* Coleta:
 					==========================================================================================*/
+						/* Variavel do Grupo:
+						======================================================================================*/
+							p[n].grupo = n;
+						
 						/* Variavel de Controle (Se 0 = desativado, Se 1 = ativado)
 						======================================================================================*/
 							p[n].ativo = 1;
@@ -363,6 +368,22 @@
 						======================================================================================*/
 							printf("\n");	
 					
+						/* Inserindo dados no arquivo:
+						======================================================================================*/
+							fprintf(filePointer, "%i\n", p[n].grupo);
+							fprintf(filePointer, "%i\n", p[n].ativo);
+							fprintf(filePointer, "%s", p[n].nome);
+							fprintf(filePointer, "%s", p[n].nacionalidade);
+							fprintf(filePointer, "%s", p[n].corPele);
+							fprintf(filePointer, "%s", p[n].corOlhos);
+							fprintf(filePointer, "%s", p[n].corCabelo);
+							fprintf(filePointer, "%i\n", p[n].altura);
+							fprintf(filePointer, "%i\n", p[n].peso);
+							fprintf(filePointer, "%i\n", p[n].idade);
+							fprintf(filePointer, "%i\n", p[n].qtdCampeonatosGanhos);
+							fprintf(filePointer, "%i\n", p[n].polePosition);
+							fprintf(filePointer, "%i\r\n", p[n].qtdVoltasRap);
+						
 						/* Atualizando n:
 						======================================================================================*/
 							printf("\t\t Deseja cadastrar mais um piloto\n\t\t (Digite '1' para sim OU '2' para nao): ");
@@ -374,23 +395,6 @@
 							} else {
 								printf("\n\t\t Cadastramento finalizado!");
 							}
-							
-			/* Inserindo dados no arquivo:
-			==================================================================================================*/
-				fprintf(filePointer, "%s\n", "Piloto Cadastrado:");
-				fprintf(filePointer, "%i\n", p[n].ativo);
-				fprintf(filePointer, "%s", p[n].nome);
-				fprintf(filePointer, "%s", p[n].nacionalidade);
-				fprintf(filePointer, "%s", p[n].corPele);
-				fprintf(filePointer, "%s", p[n].corOlhos);
-				fprintf(filePointer, "%s", p[n].corCabelo);
-				fprintf(filePointer, "%i\n", p[n].altura);
-				fprintf(filePointer, "%i\n", p[n].peso);
-				fprintf(filePointer, "%i\n", p[n].idade);
-				fprintf(filePointer, "%i\n", p[n].qtdCampeonatosGanhos);
-				fprintf(filePointer, "%i\n", p[n].polePosition);
-				fprintf(filePointer, "%i\r\n", p[n].qtdVoltasRap);
-							
 				} while (answer == 1);
 				
 				fechar();
