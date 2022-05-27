@@ -378,18 +378,18 @@
 			/* Inserindo dados no arquivo:
 			==================================================================================================*/
 				fprintf(filePointer, "%s\n", "Piloto Cadastrado:");
-				fprintf(filePointer, "Situação de Cadastro: %i\n", p[n].ativo);
-				fprintf(filePointer, "Nome: %s", p[n].nome);
-				fprintf(filePointer, "Nacionalidade: %s", p[n].nacionalidade);
-				fprintf(filePointer, "Cor de Pele: %s", p[n].corPele);
-				fprintf(filePointer, "Cor dos Olhos: %s", p[n].corOlhos);
-				fprintf(filePointer, "Cor de Cabelo: %s", p[n].corCabelo);
-				fprintf(filePointer, "Altura: %i\n", p[n].altura);
-				fprintf(filePointer, "Peso: %i\n", p[n].peso);
-				fprintf(filePointer, "Idade: %i\n", p[n].idade);
-				fprintf(filePointer, "Qtd de Campeonatos Ganhos: %i\n", p[n].qtdCampeonatosGanhos);
-				fprintf(filePointer, "Pole Position: %i\n", p[n].polePosition);
-				fprintf(filePointer, "Qtd de Voltas Rapidas: %i\r\n", p[n].qtdVoltasRap);
+				fprintf(filePointer, "%i\n", p[n].ativo);
+				fprintf(filePointer, "%s", p[n].nome);
+				fprintf(filePointer, "%s", p[n].nacionalidade);
+				fprintf(filePointer, "%s", p[n].corPele);
+				fprintf(filePointer, "%s", p[n].corOlhos);
+				fprintf(filePointer, "%s", p[n].corCabelo);
+				fprintf(filePointer, "%i\n", p[n].altura);
+				fprintf(filePointer, "%i\n", p[n].peso);
+				fprintf(filePointer, "%i\n", p[n].idade);
+				fprintf(filePointer, "%i\n", p[n].qtdCampeonatosGanhos);
+				fprintf(filePointer, "%i\n", p[n].polePosition);
+				fprintf(filePointer, "%i\r\n", p[n].qtdVoltasRap);
 							
 				} while (answer == 1);
 				

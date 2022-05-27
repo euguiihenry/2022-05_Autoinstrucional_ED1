@@ -53,6 +53,15 @@
 			}
 		}
 		
+		void abrir_modoLeitura() {
+			filePointer = fopen("arquivo_pilotos.txt", "r");
+			
+			if(filePointer == NULL) {
+				printf("Erro! Arquivo não encontrado!");
+				exit(1);       
+			}
+		}
+		
 		void criar() {
 			filePointer = fopen("arquivo_pilotos.txt", "w");
 
@@ -71,16 +80,19 @@
 		
 		/* Variaveis:
 		======================================================================================================*/
-			int n; // Para uso no loop FOR.
-			int answer; // Controle do DO WHILE.
+			/* Armazenamento:
+			==================================================================================================*/
+				char scriptWritten[25];
+				
+			/* Funcionamento Geral:
+			==================================================================================================*/
+				int n; 
+				int answer; // Controle do DO WHILE.
 			
 		/* Lidando com o arquivo de piloto.txt:
 		======================================================================================================*/
 			// Abrindo:
-				abrir();
-				
-			// Setando o ponteiro ao final da ultima informacao:
-				fseek(filePointer, 0, SEEK_END);
+				abrir_modoLeitura();
 				
 		/* Impressao da Tarefa:
 		======================================================================================================*/
@@ -94,24 +106,27 @@
 		    //PRA QUANDO FOR STRING
 		    //fgets(equipes[i].nomeE, 50, file);
 		    
+		    fgets(scriptWritten, 50, filePointer);
+		    fgets()
+		    
 		    
 		
 		/* Insercoes:
 		======================================================================================================*/
 			/* Coleta de Dados:
 			==================================================================================================*/
-				do {
+				//do {
 					/* Variavel de controle:
 					==========================================================================================*/
-						int cont = 0;
+				//		int cont = 0;
 						
 					/* Limpando o buffer do teclado:
 					==========================================================================================*/
-						fflush(stdin);
+				//		fflush(stdin);
 					
 					/* Coleta:
 					==========================================================================================*/
 						/* Variavel de Controle (Se 0 = desativado, Se 1 = ativado)
 						======================================================================================*/
-							p[n].ativo = 1;					  
+				//			p[n].ativo = 1;				  
 	}
