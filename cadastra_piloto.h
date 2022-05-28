@@ -17,8 +17,7 @@
 	/* Estrutura:
 	======================================================================================================*/
 		struct piloto {
-			int grupo;
-			int  ativo;
+			int  grupo;
 			char nome[50];
 		    char nacionalidade[30];
 		    char corPele[30];
@@ -41,6 +40,8 @@
 	/* Variavel Global 2:
 	======================================================================================================*/
 		FILE *filePointer;
+		int total_linhas = 0;
+		int last_group;	
 		
 	/* Funcoes:
 	======================================================================================================*/
@@ -50,8 +51,16 @@
 			if(filePointer == NULL) {
 				criar();
 				fechar();
-				abrir();          
+				abrir();
+				printf("Erro ao criar o arquivo!");   
+				exit(1);             
+			} else {
+				while(filePointer != EOF) {
+					if (file)
+				}
 			}
+			
+			
 		}
 		
 		void criar() {
@@ -104,10 +113,6 @@
 						/* Variavel do Grupo:
 						======================================================================================*/
 							p[n].grupo = n;
-						
-						/* Variavel de Controle (Se 0 = desativado, Se 1 = ativado)
-						======================================================================================*/
-							p[n].ativo = 1;
 							
 						/* Nome:
 						======================================================================================*/
@@ -371,7 +376,6 @@
 						/* Inserindo dados no arquivo:
 						======================================================================================*/
 							fprintf(filePointer, "%i\n", p[n].grupo);
-							fprintf(filePointer, "%i\n", p[n].ativo);
 							fprintf(filePointer, "%s", p[n].nome);
 							fprintf(filePointer, "%s", p[n].nacionalidade);
 							fprintf(filePointer, "%s", p[n].corPele);
