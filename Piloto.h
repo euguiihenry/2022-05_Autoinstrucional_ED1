@@ -4,6 +4,7 @@
 #include <ctype.h>
 #include <string.h>
 #define TAM 20
+#include "handlingFiles.h"
 
 /* Carregando funcoes:
 ==========================================================================================================*/
@@ -12,10 +13,6 @@
 	void excluir_piloto();
 	void imprimir_piloto();
 	void ehCraque();
-	void abrir();
-	void abrir_modoLeitura();
-	void criar();
-	void fechar();
 
 /* Struct:
 ==========================================================================================================*/
@@ -38,49 +35,7 @@
 	
 	/* Variavel Global 1:
 	======================================================================================================*/
-		struct piloto p[TAM];
-	
-/* Lidando com arquivos:
-==========================================================================================================*/	
-	/* Variavel Global 2:
-	======================================================================================================*/
-		FILE *filePointer;
-		int total_linhas = 0;
-		int last_group;	
-		
-	/* Funcoes:
-	======================================================================================================*/
-		void abrir() {
-			filePointer = fopen("arquivo_pilotos.txt", "r+");
-			
-			if(filePointer == NULL) {
-				criar();
-				fechar();
-				abrir();             
-			}
-		}
-		
-		void criar() {
-			filePointer = fopen("arquivo_pilotos.txt", "w");
-
-			if(filePointer == NULL) {
-				printf("Erro ao criar o arquivo!");   
-				exit(1);             
-			}
-		}
-		
-		void abrir_modoLeitura() {
-			filePointer = fopen("arquivo_pilotos.txt", "r");
-			
-			if(filePointer == NULL) {
-				printf("\t\t Erro! Arquivo nao encontrado!");
-				exit(1);       
-			}
-		}
-
-		void fechar() {
-			fclose(filePointer);
-		}
+		struct piloto p[TAM];	
 
 /* Funcionalidades:
 ==============================================================================================================*/	
@@ -1027,7 +982,7 @@
 						
 				/* Gravando no arquivo txt:
 				==========================================================================================================*/
-					/* Recriando o arquivo:
+					/* Criando novamente o arquivo:
 					======================================================================================================*/
 						criar("arquivo_pilotos.txt");
 							
@@ -1036,8 +991,7 @@
 						int z = 0;
 						int count_groups;
 						
-						while (z < m) {
-														
+						while (z < m) {							
 							if (z == group) {
 								z++;
 								count_groups = z;
@@ -1066,14 +1020,22 @@
 							z++;
 							count_groups++;
 						}
-						
-						if (z == m) {
-							criar("arquivo_pilotos.txt");
-						}
-						
+					
 					/* Fechando o arquivo txt:
-					======================================================================================================*/
+					======================================================================================================*/	
 						fechar();
+					
+					/* Caso Delete o Ultimo Grupo de Informacao:
+					======================================================================================================*/		
+						if (z == (m+1)) {
+							/* Criando um novo arquivo vazio:
+							==============================================================================================*/
+								criar("arquivo_pilotos.txt");
+							
+							/* Fechando o arquivo txt:
+							==============================================================================================*/
+								fechar();
+						}
 						
 					/* Informando que os dados foram salvos no arquivo com sucesso:
 					======================================================================================================*/			  
@@ -1083,118 +1045,145 @@
 	/* Funcao de Impressao:
 	======================================================================================================================*/
 		void imprimir_piloto() {
-			/* Limpando o buffer do teclado:
-			==============================================================================================================*/
-				fflush(stdin);
+			if (filePointer != NULL) {
+				int size;
 				
-			/* Variaveis:
-			======================================================================================================*/
-				/* Funcionamento Geral:
-				==================================================================================================*/
-					int m = 0; 
-					int answer; // Controle
+				/* Lidando com o arquivo de piloto.txt:
+				==========================================================================================================*/
+					/* Abrindo no modo de leitura:
+					======================================================================================================*/
+						abrir_modoLeitura("arquivo_pilotos.txt");
 				
-			/* Lidando com o arquivo de piloto.txt:
-			======================================================================================================*/
-				// Abrindo:
-					abrir_modoLeitura("arquivo_pilotos.txt");
+					/* Setando o ponteiro na ultima linha:
+					======================================================================================================*/
+						fseek(filePointer, 0, SEEK_END);
 					
-			/* Impressao da Tarefa:
-			======================================================================================================*/
-				printf("\n\t\t =========== IMPRESSAO DE PILOTO =============\n\n");
-										   
-			/* Buscando Dados no Arquivo:
-			======================================================================================================*/
-				//PRA QUANDO FOR INT ou FLOAT ou CHAR
-	    		//fscanf(file, "%s", equipes[i].nomeE);
-	
-			    //PRA QUANDO FOR STRING
-			    //fgets(equipes[i].nomeE, 50, file);
-			     
-			    while (!feof(filePointer)) {
-			    	/* Grupo:
-			    	==============================================================================================*/
-						fscanf(filePointer, "%i\n", &p[m].grupo);
-						printf("\t\t Grupo %i:\n\n", p[m].grupo);
-				    
-				    /* Limpando Buffer:
-				    ==============================================================================================*/
-				   		fflush(stdin);
-			    	
-					/* Nome:
-					==============================================================================================*/		    	
-			    		fgets(p[m].nome, 50, filePointer);
-			    		printf("\t\t %s", p[m].nome);
-			    	
-			    	/* Nacionalidade:
-					==============================================================================================*/
-			    		fgets(p[m].nacionalidade, 30, filePointer);
-			    		printf("\t\t %s", p[m].nacionalidade);
-			    	
-			    	/* Cor de Pele:
-					==============================================================================================*/
-			    		fgets(p[m].corPele, 30, filePointer);
-			    		printf("\t\t %s", p[m].corPele);
-			    	
-			    	/* Cor dos Olhos:
-					==============================================================================================*/
-			    		fgets(p[m].corOlhos, 30, filePointer);
-			    		printf("\t\t %s", p[m].corOlhos);
-			    	
-			    	/* Cor dos Cabelos:
-					==============================================================================================*/
-			    		fgets(p[m].corCabelo, 30, filePointer);
-			    		printf("\t\t %s", p[m].corCabelo);
-			    	
-			    	/* Limpando Buffer:
-				    ==============================================================================================*/
-				   		fflush(stdin);
-			    	
-			    	/* Altura:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[m].altura);
-			    		printf("\t\t %i\n", p[m].altura);
-			    	                                
-			    	/* Peso:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[m].peso);
-			    		printf("\t\t %i\n", p[m].peso);
-			    	                                
-			    	/* Idade:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[m].idade);
-			    		printf("\t\t %i\n", p[m].idade);
-			    	
-					/* Qtd Campeonatos Ganhos:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[m].qtdCampeonatosGanhos);
-			    		printf("\t\t %i\n", p[m].qtdCampeonatosGanhos);
-			    	
-			    	/* Pole Position:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[m].polePosition);
-			    		printf("\t\t %i\n", p[m].polePosition);
-			    	
-			    	/* Qtd de Voltas Rapidas:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[m].qtdVoltasRap);
-			    		printf("\t\t %i\n\n", p[m].qtdVoltasRap);	
-			    	
-			    	/* Atualizando o valor de m:
-			    	==============================================================================================*/
-			    		m++;
-				}
+					/* Pegando o tamanho do arquivo:
+					======================================================================================================*/	
+						size = ftell(filePointer);
 				
-				printf("\t\t Retornar ao menu anterior? (0 = NAO || 1 = SIM): ");
-				scanf("%i", &answer);
-				
-				if (answer == 1) {
-					system("cls"); // Corrigir para funcionamento com linux tbm!!!!
-				}
-				
-				/* Fechando o arquivo depois do uso:
-				==================================================================================================*/
-					fechar();
+						if (size == 0) {
+							printf("\n\t\t Arquivo vazio! Insira dados antes de tentar imprimir!\n"); 
+							
+							/* Fechando o arquivo:
+							======================================================================================================*/
+								fechar();
+							
+						} else {
+							/* Limpando o buffer do teclado:
+							======================================================================================================*/
+								fflush(stdin);
+								
+							/* Variaveis:
+							======================================================================================================*/
+								/* Funcionamento Geral:
+								==================================================================================================*/
+									int m = 0; 
+									int answer; // Controle
+								
+							/* Lidando com o arquivo de piloto.txt:
+							======================================================================================================*/
+								// Abrindo:
+									abrir_modoLeitura("arquivo_pilotos.txt");
+									
+							/* Impressao da Tarefa:
+							======================================================================================================*/
+								printf("\n\t\t =========== IMPRESSAO DE PILOTO =============\n\n");
+														   
+							/* Buscando Dados no Arquivo:
+							======================================================================================================*/
+								//PRA QUANDO FOR INT ou FLOAT ou CHAR
+					    		//fscanf(file, "%s", equipes[i].nomeE);
+					
+							    //PRA QUANDO FOR STRING
+							    //fgets(equipes[i].nomeE, 50, file);
+							     
+							    while (!feof(filePointer)) {
+							    	/* Grupo:
+							    	==============================================================================================*/
+										fscanf(filePointer, "%i\n", &p[m].grupo);
+										printf("\t\t Grupo %i:\n\n", p[m].grupo);
+								    
+								    /* Limpando Buffer:
+								    ==============================================================================================*/
+								   		fflush(stdin);
+							    	
+									/* Nome:
+									==============================================================================================*/		    	
+							    		fgets(p[m].nome, 50, filePointer);
+							    		printf("\t\t %s", p[m].nome);
+							    	
+							    	/* Nacionalidade:
+									==============================================================================================*/
+							    		fgets(p[m].nacionalidade, 30, filePointer);
+							    		printf("\t\t %s", p[m].nacionalidade);
+							    	
+							    	/* Cor de Pele:
+									==============================================================================================*/
+							    		fgets(p[m].corPele, 30, filePointer);
+							    		printf("\t\t %s", p[m].corPele);
+							    	
+							    	/* Cor dos Olhos:
+									==============================================================================================*/
+							    		fgets(p[m].corOlhos, 30, filePointer);
+							    		printf("\t\t %s", p[m].corOlhos);
+							    	
+							    	/* Cor dos Cabelos:
+									==============================================================================================*/
+							    		fgets(p[m].corCabelo, 30, filePointer);
+							    		printf("\t\t %s", p[m].corCabelo);
+							    	
+							    	/* Limpando Buffer:
+								    ==============================================================================================*/
+								   		fflush(stdin);
+							    	
+							    	/* Altura:
+									==============================================================================================*/
+							    		fscanf(filePointer, "%i\n", &p[m].altura);
+							    		printf("\t\t %i\n", p[m].altura);
+							    	                                
+							    	/* Peso:
+									==============================================================================================*/
+							    		fscanf(filePointer, "%i\n", &p[m].peso);
+							    		printf("\t\t %i\n", p[m].peso);
+							    	                                
+							    	/* Idade:
+									==============================================================================================*/
+							    		fscanf(filePointer, "%i\n", &p[m].idade);
+							    		printf("\t\t %i\n", p[m].idade);
+							    	
+									/* Qtd Campeonatos Ganhos:
+									==============================================================================================*/
+							    		fscanf(filePointer, "%i\n", &p[m].qtdCampeonatosGanhos);
+							    		printf("\t\t %i\n", p[m].qtdCampeonatosGanhos);
+							    	
+							    	/* Pole Position:
+									==============================================================================================*/
+							    		fscanf(filePointer, "%i\n", &p[m].polePosition);
+							    		printf("\t\t %i\n", p[m].polePosition);
+							    	
+							    	/* Qtd de Voltas Rapidas:
+									==============================================================================================*/
+							    		fscanf(filePointer, "%i\n", &p[m].qtdVoltasRap);
+							    		printf("\t\t %i\n\n", p[m].qtdVoltasRap);	
+							    	
+							    	/* Atualizando o valor de m:
+							    	==============================================================================================*/
+							    		m++;
+								}
+								
+								printf("\t\t Retornar ao menu anterior? (0 = NAO || 1 = SIM): ");
+								scanf("%i", &answer);
+								
+								if (answer == 1) {
+									system("cls"); // Corrigir para funcionamento com linux tbm!!!!
+								}
+								
+								/* Fechando o arquivo depois do uso:
+								==================================================================================================*/
+									fechar();
+						}
+			}
 		}
 		
 	/* Funcao Eh Craque:

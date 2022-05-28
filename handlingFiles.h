@@ -17,21 +17,30 @@
 	======================================================================================================*/
 		FILE *filePointer;
 		int total_linhas = 0;
-		int last_group;	
+		int last_group;
 		
 	/* Funcoes:
 	======================================================================================================*/
-		void abrir(const char nome) {
+		void abrir(char const *nome) {
 			filePointer = fopen(nome, "r+");
 			
+			char const *inserted_name;
+			
 			if(filePointer == NULL) {
-				criar(nome);
+				filePointer = fopen(nome, "w");
+				
 				fechar();
-				abrir(nome);             
+				
+				filePointer = fopen(nome, "r+");
+				
+				if(filePointer == NULL) {
+					printf("Erro ao criar o arquivo!");   
+					exit(1);             
+				}            
 			}
 		}
 		
-		void criar(const char nome) {
+		void criar(char const *nome) {
 			filePointer = fopen(nome, "w");
 
 			if(filePointer == NULL) {
@@ -40,7 +49,16 @@
 			}
 		}
 		
-		void abrir_modoLeitura(const char) {
+		void recriar(char const *nome) {
+			filePointer = fopen(nome, "a");
+			
+			if(filePointer == NULL) {
+				printf("Erro ao recriar o arquivo!");   
+				exit(1);  
+			}
+		}
+		
+		void abrir_modoLeitura(char const *nome) {
 			filePointer = fopen(nome, "r");
 			
 			if(filePointer == NULL) {
