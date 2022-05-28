@@ -2,7 +2,6 @@
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-#include <string.h>
 #define TAM 20
 
 /* Carregando funcoes:
@@ -1462,9 +1461,92 @@
 	        float maior;
 	        int n;
 	        int pilotoSelecionado[3];
+	        int m;
 	        
 	        abrir("arquivo_pilotos.txt");
 	        //qtdPilotos = reescrever();
+			
+			while (!feof(filePointer)) {
+		    	/* Grupo:
+		    	==============================================================================================*/
+					fscanf(filePointer, "%i\n", &p[m].grupo);
+					printf("\t\t Grupo %i:\n\n", p[m].grupo);
+			    
+			    /* Limpando Buffer:
+			    ==============================================================================================*/
+			   		fflush(stdin);
+		    	
+				/* Nome:
+				==============================================================================================*/		    	
+		    		fgets(p[m].nome, 50, filePointer);
+		    		printf("\t\t %s", p[m].nome);
+		    	
+		    	/* Nacionalidade:
+				==============================================================================================*/
+		    		fgets(p[m].nacionalidade, 30, filePointer);
+		    		printf("\t\t %s", p[m].nacionalidade);
+		    	
+		    	/* Cor de Pele:
+				==============================================================================================*/
+		    		fgets(p[m].corPele, 30, filePointer);
+		    		printf("\t\t %s", p[m].corPele);
+		    	
+		    	/* Cor dos Olhos:
+				==============================================================================================*/
+		    		fgets(p[m].corOlhos, 30, filePointer);
+		    		printf("\t\t %s", p[m].corOlhos);
+		    	
+		    	/* Cor dos Cabelos:
+				==============================================================================================*/
+		    		fgets(p[m].corCabelo, 30, filePointer);
+		    		printf("\t\t %s", p[m].corCabelo);
+		    	
+		    	/* Limpando Buffer:
+			    ==============================================================================================*/
+			   		fflush(stdin);
+		    	
+		    	/* Altura:
+				==============================================================================================*/
+		    		fscanf(filePointer, "%i\n", &p[m].altura);
+		    		printf("\t\t %i\n", p[m].altura);
+		    	                                
+		    	/* Peso:
+				==============================================================================================*/
+		    		fscanf(filePointer, "%i\n", &p[m].peso);
+		    		printf("\t\t %i\n", p[m].peso);
+		    	                                
+		    	/* Idade:
+				==============================================================================================*/
+		    		fscanf(filePointer, "%i\n", &p[m].idade);
+		    		printf("\t\t %i\n", p[m].idade);
+		    	
+				/* Qtd Campeonatos Ganhos:
+				==============================================================================================*/
+		    		fscanf(filePointer, "%i\n", &p[m].qtdCampeonatosGanhos);
+		    		printf("\t\t %i\n", p[m].qtdCampeonatosGanhos);
+		    	
+		    	/* Pole Position:
+				==============================================================================================*/
+		    		fscanf(filePointer, "%i\n", &p[m].polePosition);
+		    		printf("\t\t %i\n", p[m].polePosition);
+		    	
+		    	/* Qtd de Voltas Rapidas:
+				==============================================================================================*/
+		    		fscanf(filePointer, "%i\n", &p[m].qtdVoltasRap);
+		    		printf("\t\t %i\n\n", p[m].qtdVoltasRap);	
+		    	
+		    	/* Atualizando o valor de m:
+		    	==============================================================================================*/
+		    		m++;
+			}
+			
+			/* Fechando o arquivo depois do uso:
+			==================================================================================================*/
+				fechar();
+				
+			qtdPilotos = m;
+			
+			printf("%i", m);
 			
 			for(b = 0; b <= qtdPilotos; b++){
 	            calculo[b] = p[b].qtdCampeonatosGanhos/p[b].idade;
