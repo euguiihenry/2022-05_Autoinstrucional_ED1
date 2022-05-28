@@ -397,14 +397,13 @@
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
-										printf("\n\t\t Insira algum dado do tipo texto!\n\n");
+										printf("\n\t\t Insira algum dado do tipo texto!\n");
 										cont = 1;
-										
-									}else {
+									} else {
 										for(int x=0; x<strlen(aux); x++) {
 											e[n].coresEquipe[x] = aux[x];
 										}
-										cont = 2;	
+										cont = 2;
 									}
 								} while (cont < 2);			
 								
@@ -2112,6 +2111,7 @@
 						}
 			//}
 		}
+		
 		
 /* Funcao de reescrita:
 	==============================================================================================================*/
