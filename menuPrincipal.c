@@ -7,7 +7,7 @@
 
 // Menu Principal:
 	int main() {
-		// Vari·vel:
+		// Vari√°vel:
 			int count;
 		
 		// Processamento:
@@ -75,7 +75,7 @@
 										//editarCarro();
 										break;
 									case 3:
-										//editarPiloto();
+										editar_piloto();
 										break;
 									case 4:
 										break;
@@ -107,7 +107,7 @@
 										//excluir_carro();
 										break;
 									case 3:
-										//excluir_piloto();
+										excluir_piloto();
 										break;
 									case 4:
 										break;
@@ -139,7 +139,7 @@
 										//listar_carro();
 										break;
 									case 3:
-										//listar_piloto();
+										imprimir_piloto();
 										break;
 									case 4:
 										//listarEquipe();
@@ -168,12 +168,12 @@
 		
 					case 6:
 						printf("\t\t ____________________________________________\n\n");
-						printf("\t\tDesenvolvido por:\n\n");
+						printf("\t\t Desenvolvido por:\n\n");
 						printf("\t\t Arthur Gomes   \n");
 						printf("\t\t Guilherme Henrique   \n");
 						printf("\t\t Karen Moreira   \n");
 						printf("\t\t Matheus de Oliveira   \n");
-						printf("\n\n\t\tCIENCIA DA COMPUTACAO - 2/2022");
+						printf("\n\n\t\t CIENCIA DA COMPUTACAO - 02/2022");
 						
 						break;
 		
