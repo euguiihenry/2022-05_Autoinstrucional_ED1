@@ -16,7 +16,6 @@
 	void excluir_piloto();
 	void imprimir_piloto();
 	void ehCraque();
-	int reescrever();
 
 /* Lidando com arquivos:
 ==========================================================================================================*/	
@@ -57,7 +56,7 @@
 		}
 		
 		void recriar(char const *nome) {
-			filePointer = fopen(nome, "a");
+			filePointer = fopen(nome, "a+");
 			
 			if(filePointer == NULL) {
 				printf("Erro ao recriar o arquivo!");   
@@ -110,6 +109,9 @@
 			======================================================================================================*/
 				int n; // Para uso no loop FOR.
 				int answer; // Controle do DO WHILE.
+				int length;
+				int sizeFile;
+				
 				int group_counting;
 				
 			/* Lidando com o arquivo de piloto.txt:
@@ -121,7 +123,121 @@
 					fseek(filePointer, 0, SEEK_END);
 					
 				// Atualizando o numero de grupos:
-					group_counting = reescrever();
+					group_counting = n;
+				/*	
+				 Reescrever o arquivo pegando o group_couting:
+					sizeFile = ftell(filePointer);
+					
+					if (sizeFile != 0) {
+						length = 0;
+						
+						while (!feof(filePointer)) {
+					    	/* Grupo:
+					    	==============================================================================================
+								fscanf(filePointer, "%i\n", &p[length].grupo);
+						    
+						    /* Limpando Buffer:
+						    ==============================================================================================
+						   		fflush(stdin);
+					    	
+							/* Nome:
+							==============================================================================================		    	
+					    		fgets(p[length].nome, 50, filePointer);
+					    	
+					    	/* Nacionalidade:
+							==============================================================================================
+					    		fgets(p[length].nacionalidade, 30, filePointer);
+					    	
+					    	/* Cor de Pele:
+							==============================================================================================
+					    		fgets(p[length].corPele, 30, filePointer);
+					    	
+					    	/* Cor dos Olhos:
+							==============================================================================================
+					    		fgets(p[length].corOlhos, 30, filePointer);
+					    	
+					    	/* Cor dos Cabelos:
+							==============================================================================================
+					    		fgets(p[length].corCabelo, 30, filePointer);
+					    	
+					    	/* Limpando Buffer:
+						    ==============================================================================================
+						   		fflush(stdin);
+					    	
+					    	/* Altura:
+							==============================================================================================
+					    		fscanf(filePointer, "%i\n", &p[length].altura);
+					    	                                
+					    	/* Peso:
+							==============================================================================================
+					    		fscanf(filePointer, "%i\n", &p[length].peso);
+					    	                                
+					    	/* Idade:
+							==============================================================================================
+					    		fscanf(filePointer, "%i\n", &p[length].idade);
+					    	
+							/* Qtd Campeonatos Ganhos:
+							==============================================================================================
+					    		fscanf(filePointer, "%i\n", &p[length].qtdCampeonatosGanhos);
+					    	
+					    	/* Pole Position:
+							==============================================================================================
+					    		fscanf(filePointer, "%i\n", &p[length].polePosition);
+					    	
+					    	/* Qtd de Voltas Rapidas:
+							==============================================================================================
+					    		fscanf(filePointer, "%i\n", &p[length].qtdVoltasRap);	
+					    	
+					    	/* Atualizando o valor de length:
+					    	==============================================================================================
+					    		length++;
+						}
+						
+						//printf("%i", length);
+						
+						// Fechando o modo leitura:
+							fechar();
+						
+						// Criando um arquivo novo:
+							recriar("arquivo_pilotos.txt");
+						
+							int a;
+							a = 0;
+							
+							for (a=0; a<length; a++) {
+								p[a].grupo = a;
+								
+								fprintf(filePointer, "%i\n", p[a].grupo);
+								fprintf(filePointer, "%s", p[a].nome);
+								fprintf(filePointer, "%s", p[a].nacionalidade);
+								fprintf(filePointer, "%s", p[a].corPele);
+								fprintf(filePointer, "%s", p[a].corOlhos);
+								fprintf(filePointer, "%s", p[a].corCabelo);
+								fprintf(filePointer, "%i\n", p[a].altura);
+								fprintf(filePointer, "%i\n", p[a].peso);
+								fprintf(filePointer, "%i\n", p[a].idade);
+								fprintf(filePointer, "%i\n", p[a].qtdCampeonatosGanhos);
+								fprintf(filePointer, "%i\n", p[a].polePosition);
+								fprintf(filePointer, "%i\r\n", p[a].qtdVoltasRap);
+							}
+						
+						// Fechando o arquivo do modo criar:
+							fechar();
+						
+						/* Abrindo o arquivo no modo escrita e leitura:
+						======================================================================================================
+							abrir("arquivo_pilotos.txt");
+						
+						/* Setando o ponteiro na ultima linha:
+						======================================================================================================
+							fseek(filePointer, 0, SEEK_END);
+							
+							group_counting = a;
+					
+					} else {
+						group_counting = 0;
+					}
+					*/
 					
 			/* Impressao da Tarefa:
 			======================================================================================================*/
@@ -1338,130 +1454,48 @@
 		
 	/* Funcao Eh Craque:
 	==============================================================================================================*/
-		 void ehCraque() {
-		 	
-		 }
-		 
-	/* Funcao de reescrita:
-	==============================================================================================================*/
-		int reescrever() {	
-			int length;
-			int num_last_group;
-			int sizeFile;
+		void ehCraque() { 
+
+	        float calculo[20];
+	        int controle[20];
+	        float podio[3];
+	        int b;
+	        int qtdPilotos;
+	        float maior;
+	        int n;
+	        int pilotoSelecionado[3];
+	        
+	        abrir("arquivo_pilotos.txt");
+	        //qtdPilotos = reescrever();
 			
-			sizeFile = ftell(filePointer);
+			for(b = 0; b <= qtdPilotos; b++){
+	            calculo[b] = p[b].qtdCampeonatosGanhos/p[b].idade;
+	            controle[b] = 1; 
+            }
 			
-			if (sizeFile != 0) {
-				length = 0;
+			n = 0;
+			
+			while (n < 3 ) {
+				maior = -9999999;
 				
-				while (!feof(filePointer)) {
-			    	/* Grupo:
-			    	==============================================================================================*/
-						fscanf(filePointer, "%i\n", &p[length].grupo);
-				    
-				    /* Limpando Buffer:
-				    ==============================================================================================*/
-				   		fflush(stdin);
-			    	
-					/* Nome:
-					==============================================================================================*/		    	
-			    		fgets(p[length].nome, 50, filePointer);
-			    	
-			    	/* Nacionalidade:
-					==============================================================================================*/
-			    		fgets(p[length].nacionalidade, 30, filePointer);
-			    	
-			    	/* Cor de Pele:
-					==============================================================================================*/
-			    		fgets(p[length].corPele, 30, filePointer);
-			    	
-			    	/* Cor dos Olhos:
-					==============================================================================================*/
-			    		fgets(p[length].corOlhos, 30, filePointer);
-			    	
-			    	/* Cor dos Cabelos:
-					==============================================================================================*/
-			    		fgets(p[length].corCabelo, 30, filePointer);
-			    	
-			    	/* Limpando Buffer:
-				    ==============================================================================================*/
-				   		fflush(stdin);
-			    	
-			    	/* Altura:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[length].altura);
-			    	                                
-			    	/* Peso:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[length].peso);
-			    	                                
-			    	/* Idade:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[length].idade);
-			    	
-					/* Qtd Campeonatos Ganhos:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[length].qtdCampeonatosGanhos);
-			    	
-			    	/* Pole Position:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[length].polePosition);
-			    	
-			    	/* Qtd de Voltas Rapidas:
-					==============================================================================================*/
-			    		fscanf(filePointer, "%i\n", &p[length].qtdVoltasRap);	
-			    	
-			    	/* Atualizando o valor de length:
-			    	==============================================================================================*/
-			    		length++;
+				for (b=0; b<qtdPilotos; b++) {
+					if (maior < calculo[b] && controle[b] == 1) {
+						maior = calculo[b];
+						controle[b] = 0;
+					}
 				}
 				
-				printf("%i", length);
+				podio[n] = calculo[b];
+				pilotoSelecionado[n] = b;
 				
-				// Fechando o modo leitura:
-					fechar();
-				
-				// Criando um arquivo novo:
-					criar("arquivo_pilotos.txt");
-				
-					int a;
-					a = 0;
-				
-					while(a <= length) {
-						p[a].grupo = a;
-					
-						fprintf(filePointer, "%i\n", p[a].grupo);
-						fprintf(filePointer, "%s", p[a].nome);
-						fprintf(filePointer, "%s", p[a].nacionalidade);
-						fprintf(filePointer, "%s", p[a].corPele);
-						fprintf(filePointer, "%s", p[a].corOlhos);
-						fprintf(filePointer, "%s", p[a].corCabelo);
-						fprintf(filePointer, "%i\n", p[a].altura);
-						fprintf(filePointer, "%i\n", p[a].peso);
-						fprintf(filePointer, "%i\n", p[a].idade);
-						fprintf(filePointer, "%i\n", p[a].qtdCampeonatosGanhos);
-						fprintf(filePointer, "%i\n", p[a].polePosition);
-						fprintf(filePointer, "%i\r\n", p[a].qtdVoltasRap);
-					
-						a++;
-					}
-				
-				// Fechando o arquivo do modo criar:
-					fechar();
-				
-				/* Abrindo o arquivo no modo escrita e leitura:
-				======================================================================================================*/
-					abrir("arquivo_pilotos.txt");
-				
-				/* Setando o ponteiro na ultima linha:
-				======================================================================================================*/
-					fseek(filePointer, 0, SEEK_END);
-				
-				return a;
-				
-			} else {
-				num_last_group = 0;
-				
-				return num_last_group;
+				n++; 
 			}
-		}
+			
+			for (b=0; b<n; b++) {
+				printf("\n\t\t Podio de Pilotos:\n");
+				printf("\n\t\t Piloto: %s", p[pilotoSelecionado[b]].nome);
+				printf("\n\t\t Posicao do Podio: %i", (b+1));
+				printf("\n\t\t Valor do Calculo: %f", podio[b]);
+			}
+        }
+		 
