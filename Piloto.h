@@ -1345,20 +1345,15 @@
 	/* Funcao de reescrita:
 	==============================================================================================================*/
 		int reescrever() {	
-			int length = 0;
+			int length;
 			int num_last_group;
 			int sizeFile;
-			const char *fileNameForOpen;
-			
-			//fechar();
-			
-			fileNameForOpen = "arquivo_pilotos.txt";
-			
-			//abrir_modoLeitura(fileNameForOpen);
 			
 			sizeFile = ftell(filePointer);
 			
 			if (sizeFile != 0) {
+				length = 0;
+				
 				while (!feof(filePointer)) {
 			    	/* Grupo:
 			    	==============================================================================================*/
@@ -1421,16 +1416,18 @@
 			    		length++;
 				}
 				
+				printf("%i", length);
+				
 				// Fechando o modo leitura:
 					fechar();
 				
 				// Criando um arquivo novo:
-					criar(fileNameForOpen);
+					criar("arquivo_pilotos.txt");
 				
 					int a;
 					a = 0;
 				
-					while(a < length) {
+					while(a <= length) {
 						p[a].grupo = a;
 					
 						fprintf(filePointer, "%i\n", p[a].grupo);
@@ -1452,8 +1449,13 @@
 				// Fechando o arquivo do modo criar:
 					fechar();
 				
-				// Abrindo o arquivo no modo escrita e leitura:
-					abrir(fileNameForOpen);
+				/* Abrindo o arquivo no modo escrita e leitura:
+				======================================================================================================*/
+					abrir("arquivo_pilotos.txt");
+				
+				/* Setando o ponteiro na ultima linha:
+				======================================================================================================*/
+					fseek(filePointer, 0, SEEK_END);
 				
 				return a;
 				
