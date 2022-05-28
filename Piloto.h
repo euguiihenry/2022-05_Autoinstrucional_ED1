@@ -631,7 +631,7 @@
 														printf("\n\t\t Insira algum dado do tipo texto!\n");
 														cont = 1;
 													} else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<strlen(p[group].nome); x++) {
 															p[group].nome[x] = aux[x];
 														}
 														cont = 2;
@@ -656,7 +656,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<strlen(p[group].nacionalidade); x++) {
 															p[group].nacionalidade[x] = aux[x];
 														}
 														cont = 2;	
@@ -681,7 +681,7 @@
 														cont = 1;
 														
 													} else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<strlen(p[group].corPele); x++) {
 															p[group].corPele[x] = aux[x];
 														}
 														cont = 2;
@@ -706,7 +706,7 @@
 														cont = 1;
 														
 													} else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<strlen(p[group].corOlhos); x++) {
 															p[group].corOlhos[x] = aux[x];
 														}
 														cont = 2;
@@ -731,7 +731,7 @@
 														cont = 0;
 														
 													} else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<strlen(p[group].corCabelo); x++) {
 															p[group].corCabelo[x] = aux[x];
 														}
 														cont = 2;
