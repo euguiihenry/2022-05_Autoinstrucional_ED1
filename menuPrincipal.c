@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include "Piloto.h"
 #include "Carro.h"
-//#include "Equipe.h"
+#include "equipe.h"
 
 // Menu Principal:
 	int main() {
@@ -30,17 +30,17 @@
 							printf("\t\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",3016,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3004);
 				
 							printf("\n\n\t\t ESCOLHA A OPCAO DESEJADA:  \n\n");
-							printf("\t\t  1  %c   CADASTRAR EQUIPE\n\n\t\t  2  %c   CADASTRAR CARRO\n\n\t\t  3  %c   CADASTRAR PILOTO\n\n\t\t  4  %c   VOLTAR AO MENU PRINCIPAL\n\n",16,16,16,16,16,16,16,136,16);
+							printf("\t\t  1  %c   CADASTRAR EQUIPE\n\n\t\t  2  %c   CADASTRAR CARRO\n\n\t\t  3  %c   CADASTRAR PILOTO\n\n\t\t  4  %c   VOLTAR AO MENU PRINCIPAL\n\n\n\t\t  6   %c  PARA ATUALIZAR APLICACAO\n\n",16,16,16,16,16,16,16,136,16);
 							printf("\t\t ____________________________________________   \n\n\t\t  %c     ",26);
 							scanf("\n%d",&count);
 				
 							
 								switch(count){
 									case 1:
-										//cadastrar_equipe();
+										cadastrar_equipe();
 										break;
 									case 2:
-										cadastrar_carro();
+									    cadastrar_carro();
 										break;
 									case 3:
 										cadastrar_piloto();
@@ -62,17 +62,17 @@
 							printf("\t\t\t%c       EDICAO       %c\n",3002,3002);
 							printf("\t\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",3016,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3004);
 							printf("\n\n\t\t ESCOLHA A OPCAO DESEJADA:  \n\n");
-							printf("\t\t  1  %c   EDITAR EQUIPE\n\n\t\t  2  %c   EDITAR CARRO\n\n\t\t  3  %c   EDITAR PILOTO\n\n\t\t  4  %c   VOLTAR AO MENU PRINCIPAL\n\n",16,16,16,16,16,16,16,136,16);
+							printf("\t\t  1  %c   EDITAR EQUIPE\n\n\t\t  2  %c   EDITAR CARRO\n\n\t\t  3  %c   EDITAR PILOTO\n\n\t\t  4  %c   VOLTAR AO MENU PRINCIPAL\n\n\n\t\t  6   %c  PARA ATUALIZAR APLICACAO\n\n",16,16,16,16,16,16,16,136,16);
 							printf("\t\t ____________________________________________   \n\n\t\t  %c     ",26);
 							scanf("\n%d",&count);
 							
 							
 								switch(count){
 									case 1:
-										//editarEquipe();
+							         	editar_equipe();
 										break;
 									case 2:
-										//editarCarro();
+										editar_carro();
 										break;
 									case 3:
 										editar_piloto();
@@ -94,17 +94,17 @@
 							printf("\t\t\t%c       EXCLUSAO     %c\n",3002,3002);
 							printf("\t\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",3016,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3004);
 							printf("\n\n\t\t ESCOLHA A OPCAO DESEJADA:  \n\n");
-							printf("\t\t  1  %c   EXCLUIR EQUIPE\n\n\t\t  2  %c   EXCLUIR CARRO\n\n\t\t  3  %c   EXCLUIR PILOTO\n\n\t\t  4  %c   VOLTAR AO MENU PRINCIPAL\n\n",16,16,16,16,16,16,16,136,16);
+							printf("\t\t  1  %c   EXCLUIR EQUIPE\n\n\t\t  2  %c   EXCLUIR CARRO\n\n\t\t  3  %c   EXCLUIR PILOTO\n\n\t\t  4  %c   VOLTAR AO MENU PRINCIPAL\n\n\n\t\t  6   %c  PARA ATUALIZAR APLICACAO\n\n",16,16,16,16,16,16,16,136,16);
 							printf("\t\t ____________________________________________   \n\n\t\t  %c     ",26);
 							scanf("\n%d",&count);
 							
 							
 								switch(count){
 									case 1:
-										//excluir_equipe();
+										excluir_equipe();
 										break;
 									case 2:
-										//excluir_carro();
+										excluir_carro();
 										break;
 									case 3:
 										excluir_piloto();
@@ -126,35 +126,28 @@
 							printf("\t\t\t%c       LISTAR       %c\n",3002,3002);
 							printf("\t\t\t%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c",3016,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3021,3004);
 							printf("\n\n\t\t ESCOLHA A OPCAO DESEJADA:  \n\n");
-							printf("\t\t  1  %c   LISTAR EQUIPE\n\n\t\t  2  %c   LISTAR CARRO\n\n\t\t  3  %c   LISTAR PILOTO\n\n\t\t  4  %c   LISTAR TUDO\n\n\t\t  5  %c   VOLTAR AO MENU PRINCIPAL\n\n",16,16,16,16,16,16,16,136,16);
+							printf("\t\t  1  %c   LISTAR EQUIPE\n\n\t\t  2  %c   LISTAR CARRO\n\n\t\t  3  %c   LISTAR PILOTO\n\n\t\t  4  %c   VOLTAR AO MENU PRINCIPAL\n\n\n\t\t  6   %c  PARA ATUALIZAR APLICACAO\n\n",16,16,16,16,16,16,16,136,16);
 							printf("\t\t ____________________________________________   \n\n\t\t  %c     ",26);
 							scanf("\n%d",&count);
 							
 							
 								switch(count){
 									case 1:
-										//listar_equipe();
+										imprimir_equipe();
 										break;
 									case 2:
-										//listar_carro();
+										imprimir_carro();
 										break;
 									case 3:
 										imprimir_piloto();
 										break;
 									case 4:
-										//listarEquipe();
-										//printf("\t\t ____________________________________________   \n\n\t\t  %c     ",26);
-										//listarCarro();
-										//printf("\t\t ____________________________________________   \n\n\t\t  %c     ",26);
-										//listarPiloto();
-										break;
-									case 5:
 										break;
 									default:
 										printf("\n\t\t  Insira uma opcao valida!\n");
 										break;
 								}
-						}while(count != 5);
+						}while(count != 4);
 						break;
 					
 					case 5:
