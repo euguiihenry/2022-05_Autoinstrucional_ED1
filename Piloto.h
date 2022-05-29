@@ -578,9 +578,7 @@
 							printf("\t\t Retornar ao menu anterior? (0 = NAO || 1 = SIM): ");
 							scanf("%i", &final_answer);
 							
-							if (final_answer == 1) {
-								system("cls"); // Corrigir para funcionamento com linux tbm!!!!
-							}
+							
 							
 							/* Fechando o arquivo:
 							======================================================================================================*/
@@ -1084,9 +1082,6 @@
 							printf("\t\t Retornar ao menu anterior? (0 = NAO || 1 = SIM): ");
 							scanf("%i", &final_answer);
 							
-							if (final_answer == 1) {
-								system("cls"); // Corrigir para funcionamento com linux tbm!!!!
-							}  
 							
 							/* Fechando o arquivo:
 							======================================================================================================*/
@@ -1323,10 +1318,7 @@
 							
 							printf("\t\t Retornar ao menu anterior? (0 = NAO || 1 = SIM): ");
 							scanf("%i", &final_answer);
-							
-							if (final_answer == 1) {
-								system("cls"); // Corrigir para funcionamento com linux tbm!!!!
-							} 
+
 							
 							/* Fechando o arquivo:
 							======================================================================================================*/
@@ -1438,9 +1430,6 @@
 								printf("\t\t Retornar ao menu anterior? (0 = NAO || 1 = SIM): ");
 								scanf("%i", &answer);
 								
-								if (answer == 1) {
-									system("cls"); // Corrigir para funcionamento com linux tbm!!!!
-								}
 								
 								/* Fechando o arquivo depois do uso:
 								==================================================================================================*/
