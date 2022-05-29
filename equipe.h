@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
@@ -16,8 +15,6 @@
 	void abrir_arqEquip();  
 	void recriar_arqEquip();    
 	void abrir_arqEquip_modoLeitura();
-	int reescrever_equip();
-
 
 /* Lidando com arquivos:
 ==========================================================================================================*/	
@@ -40,7 +37,7 @@
 				filePointerEquip = fopen(nome, "r+");
 				
 				if(filePointerEquip == NULL) {
-					printf("Erro ao criar o arquivo!");   
+					printf("\n\t\tErro ao criar o arquivo!");   
 					exit(1);             
 				}            
 			}
@@ -50,7 +47,7 @@
 			filePointerEquip = fopen(nome, "w");
 
 			if(filePointerEquip == NULL) {
-				printf("Erro ao criar o arquivo!");   
+				printf("\n\t\tErro ao criar o arquivo!");   
 				exit(1);             
 			}
 		}
@@ -59,7 +56,7 @@
 			filePointerEquip = fopen(nome, "a");
 			
 			if(filePointerEquip == NULL) {
-				printf("Erro ao recriar o arquivo!");   
+				printf("\n\t\tErro ao recriar o arquivo!");   
 				exit(1);  
 			}
 		}
@@ -72,7 +69,7 @@
 			filePointerEquip = fopen(nome, "r");
 			
 			if(filePointerEquip == NULL) {
-				printf("\t\t Erro! Arquivo nao encontrado!");
+				printf("\n\t\t Erro! Arquivo nao encontrado!");
 				exit(1);       
 			}
 		}
@@ -132,7 +129,7 @@
 				// Setando o ponteiro ao final da ultima informacao:
 					fseek(filePointerEquip, 0, SEEK_END);
 					
-					group_counting1 = reescrever_equip();
+					group_counting1 = n;
 
 					
 			/* Impressao da Tarefa:
@@ -186,7 +183,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira a nacionalidade do equipe: ");
+									printf("\n\t\t Insira a nacionalidade do equipe: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -208,7 +205,7 @@
 									int entrada;
 									cont = 0;
 									
-									printf("\t\t Insira a quantidade de membros: ");
+									printf("\n\t\t Insira a quantidade de membros: ");
 									fgets(aux, 4, stdin);
 									
 									if (isdigit(aux[1])) {
@@ -234,7 +231,7 @@
 									int entrada;
 									cont = 0;
 									
-									printf("\t\t Insira a quantidade de titulos dos contrutores: ");
+									printf("\n\t\t Insira a quantidade de titulos dos contrutores: ");
 									fgets(aux, 4, stdin);
 									
 									if (isdigit(aux[1])) {
@@ -261,7 +258,7 @@
 									int entrada;
 									cont = 0;
 									
-									printf("\t\t Insira a quantidade de titulos dos condutores: ");
+									printf("\n\t\t Insira a quantidade de titulos dos condutores: ");
 									fgets(aux, 4, stdin);
 									
 									if (isdigit(aux[1])) {
@@ -287,7 +284,7 @@
 									int entrada;
 									cont = 0;
 									
-									printf("\t\t Insira o poli positions : ");
+									printf("\n\t\t Insira o poli positions : ");
 									fgets(aux, 4, stdin);
 									
 									if (isdigit(aux[1])) {
@@ -314,7 +311,7 @@
 									int entrada;
 									cont = 0;
 									
-									printf("\t\t Insira a quantidade de voltas mais rapidas: ");
+									printf("\n\t\t Insira a quantidade de voltas mais rapidas: ");
 									fgets(aux, 8, stdin);
 									
 									if (isdigit(aux[1])) {
@@ -342,7 +339,7 @@
 									int entrada;
 									cont = 0;
 									
-									printf("\t\t Insira o valor de mercado: ");
+									printf("\n\t\t Insira o valor de mercado: ");
 									fgets(aux, 10, stdin);
 									
 									if (isdigit(aux[1])) {
@@ -369,7 +366,7 @@
 									int entrada;
 									cont = 0;
 									
-									printf("\t\t Insira o valor da taxa de inscricao: ");
+									printf("\n\t\t Insira o valor da taxa de inscricao: ");
 									fgets(aux, 10, stdin);
 									
 									if (isdigit(aux[1])) {
@@ -393,7 +390,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira as cores da equipe: ");
+									printf("\n\t\t Insira as cores da equipe: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -414,7 +411,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do chefe de equipe: ");
+									printf("\n\t\t Insira o nome do chefe de equipe: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -436,7 +433,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do diretor comercial: ");
+									printf("\n\t\t Insira o nome do diretor comercial: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -458,7 +455,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do diretor tecnico: ");
+									printf("\n\t\t Insira o nome do diretor tecnico: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -480,7 +477,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do chefe da aereodinamica: ");
+									printf("\n\t\t Insira o nome do chefe da aereodinamica: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -502,7 +499,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do projetista chefe: ");
+									printf("\n\t\t Insira o nome do projetista chefe: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -524,7 +521,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do chefe de pesquisa e desenvolvimento: ");
+									printf("\n\t\t Insira o nome do chefe de pesquisa e desenvolvimento: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -546,7 +543,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do chefe mecanico: ");
+									printf("\n\t\t Insira o nome do chefe mecanico: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -568,7 +565,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do tecnico de pneus: ");
+									printf("\n\t\t Insira o nome do tecnico de pneus: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -590,7 +587,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome dos tecnico de componentes: ");
+									printf("\n\t\t Insira o nome dos tecnico de componentes: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -612,7 +609,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do tecnico de transmissao: ");
+									printf("\n\t\t Insira o nome do tecnico de transmissao: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -634,7 +631,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira o nome do tecnico de combustiveis: ");
+									printf("\n\t\t Insira o nome do tecnico de combustiveis: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -657,7 +654,7 @@
 									char aux[30];
 									cont = 0;
 															
-									printf("\t\t Insira os nomes do mecanicos de pitstop: ");
+									printf("\n\t\t Insira os nomes do mecanicos de pitstop: ");
 									fgets(aux, 30, stdin);
 									
 									if (strlen(aux) == 1) {
@@ -710,7 +707,7 @@
 						}
 							/* Atualizando n:
 							======================================================================================*/
-								printf("Deseja cadastrar mais um piloto ? \n\t\t (Digite '1' para sim OU '2' para nao): ");
+								printf("\n\t\tDeseja cadastrar mais um piloto ? \n\t\t (Digite '1' para sim OU '2' para nao): ");
 								scanf("%i", &answer);
 								
 								if (answer == 1) {
@@ -748,7 +745,7 @@
 			    	/* Grupo:
 			    	==============================================================================================*/
 						fscanf(filePointerEquip, "%i\n", &e[m].grupo);
-						printf("\t\t Grupo %i:\n\n", e[m].grupo);
+						printf("\n\t\t Grupo %i:\n\n", e[m].grupo);
 				    
 				    /* Limpando Buffer:
 				    ==============================================================================================*/
@@ -757,12 +754,12 @@
 					 /* Nome:
 									==============================================================================================*/		    	
 							    		fgets(e[m].nome, 50, filePointerEquip);
-							    		printf("\t\t %s", e[m].nome);
+							    		printf("\n\t\t %s", e[m].nome);
 							    	
 							    	/* Nacionalidade:
 									==============================================================================================*/
 							    		fgets(e[m].nacionalidade, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].nacionalidade);
+							    		printf("\n\t\t %s", e[m].nacionalidade);
 							    		
 							    	/* Limpando Buffer:
 								    ==============================================================================================*/
@@ -771,29 +768,29 @@
 							    	/* Quantidade de membros:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].qtddMembros);
-							    		printf("\t\t %i\n", e[m].qtddMembros);
+							    		printf("\n\t\t %i\n", e[m].qtddMembros);
 							    	
 							    	/* Quantidade de titulos dos contrutores:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].qtddTitulosConstrutores );
-							    		printf("\t\t %i\n", e[m].qtddTitulosConstrutores );
+							    		printf("\n\t\t %i\n", e[m].qtddTitulosConstrutores );
 							    	
 							    	/* Quantidade de titulos dos condutores
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].qtddTitulosCondutores);
-							    		printf("\t\t %i\n", e[m].qtddTitulosCondutores);
+							    		printf("\n\t\t %i\n", e[m].qtddTitulosCondutores);
 							    		
 							    		fflush(stdin);
 							    	
 							    	/* Poli Positions:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].poliPositions);
-							    		printf("\t\t %i\n", e[m].poliPositions);
+							    		printf("\n\t\t %i\n", e[m].poliPositions);
 							    	                                
 							    	/* Quantidades de voltas mais rapidas:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].qtddVoltasMaisRap );
-							    		printf("\t\t %i\n", e[m].qtddVoltasMaisRap );
+							    		printf("\n\t\t %i\n", e[m].qtddVoltasMaisRap );
 							    	 
 									 /* Limpando Buffer:
 				                    ==============================================================================================*/
@@ -802,12 +799,12 @@
 							    	/* Valor do mercado:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].valorMercado);
-							    		printf("\t\t %i\n", e[m].valorMercado);
+							    		printf("\n\t\t %i\n", e[m].valorMercado);
 							    	
 									/* Taxa de inscrição na temporada
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].taxaIncricaoTemp );
-							    		printf("\t\t %i\n", e[m].taxaIncricaoTemp );
+							    		printf("\n\t\t %i\n", e[m].taxaIncricaoTemp );
 							    	
 							    	/* Limpando Buffer:
 								    ==============================================================================================*/
@@ -816,62 +813,62 @@
 							    	/* Cores da equipe:
 									==============================================================================================*/		    	
 							    		fgets(e[m].coresEquipe, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].coresEquipe);
+							    		printf("\n\t\t %s", e[m].coresEquipe);
 							    	
 							    	/* Chefe da equipe:
 									==============================================================================================*/
 							    		fgets(e[m].chefeEquipe, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].chefeEquipe);
+							    		printf("\n\t\t %s", e[m].chefeEquipe);
 							    	
 							    	/* Diretor Comercial:
 									==============================================================================================*/		    	
 							    		fgets(e[m].diretorComercial, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].diretorComercial);
+							    		printf("\n\t\t %s", e[m].diretorComercial);
 							    	
 							    	/* Diretor Tecnico:
 									==============================================================================================*/
 							    		fgets(e[m].diretorTecnico, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].diretorTecnico);
+							    		printf("\n\t\t %s", e[m].diretorTecnico);
 							    	
 							    	/* Chefe aereo dinamico:
 									==============================================================================================*/		    	
 							    		fgets(e[m].aeroDinamicChefe, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].aeroDinamicChefe);
+							    		printf("\n\t\t %s", e[m].aeroDinamicChefe);
 							    	
 							    	/* Chefe projetista:
 									==============================================================================================*/
 							    		fgets(e[m].projetistaChefe, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].projetistaChefe);
+							    		printf("\n\t\t %s", e[m].projetistaChefe);
 							    		
 							    	/* Chefe de pesquisa e desenvolvimento:
 									==============================================================================================*/		    	
 							    		fgets(e[m].chefePesqEhDev, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].chefePesqEhDev);
+							    		printf("\n\t\t %s", e[m].chefePesqEhDev);
 							    	
 							    	/* Chefe Mecanico:
 									==============================================================================================*/
 							    		fgets(e[m].chefeMecanico, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].chefeMecanico);
+							    		printf("\n\t\t %s", e[m].chefeMecanico);
 							    		
 							    	/* Tecnico de pneus:
 									==============================================================================================*/		    	
 							    		fgets(e[m].tecnicoPneus, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].tecnicoPneus);
+							    		printf("\n\t\t %s", e[m].tecnicoPneus);
 							    	
 							    	/* Tecnico de componentes:
 									==============================================================================================*/
 							    		fgets(e[m].tecnicoComponentes, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].tecnicoComponentes);
+							    		printf("\n\t\t %s", e[m].tecnicoComponentes);
 							    		
 							    	/* Tecnico de transmissão:
 									==============================================================================================*/		    	
 							    		fgets(e[m].tecnicoTransmissao, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].tecnicoTransmissao);
+							    		printf("\n\t\t %s", e[m].tecnicoTransmissao);
 							    	
 							    	/* Tecnico de combustivel:
 									==============================================================================================*/
 							    		fgets(e[m].tecnicoCombustivel, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].tecnicoCombustivel);
+							    		printf("\n\t\t %s", e[m].tecnicoCombustivel);
 							    		
 							    	/* Limpando Buffer:
 				                    ==============================================================================================*/
@@ -881,7 +878,7 @@
 									==============================================================================================*/		    
 									for(int l = 0; l < 21; l++){	
 							    		fgets(e[m].mecanicosPitStop[l], 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].mecanicosPitStop[l]);
+							    		printf("\n\t\t %s", e[m].mecanicosPitStop[l]);
 							    		fflush(stdin);
 								    }
 			    	/* Atualizando o valor de m:
@@ -898,7 +895,7 @@
 			    	int group;
 			    	int editionOption;
 			    	
-			    	printf("\t\t Qual grupo deseja editar: ");
+			    	printf("\n\t\t Qual grupo deseja editar: ");
 			    	scanf("%i", &group);    	
 			    	
 			    	for (int y=0; y<m; y++) {
@@ -964,7 +961,7 @@
 														printf("\n\t\t Insira algum dado do tipo texto!\n");
 														cont = 1;
 													} else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].nome[x] = aux[x];
 														}
 														cont = 2;
@@ -981,7 +978,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira a nacionalidade do piloto: ");
+													printf("\n\t\t Insira a nacionalidade do piloto: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -989,7 +986,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].nacionalidade[x] = aux[x];
 														}
 														cont = 2;	
@@ -1007,10 +1004,10 @@
 													int entrada;
 													cont = 0;
 													
-													printf("\t\t Insira a quantidade de membros: ");
+													printf("\n\t\t Insira a quantidade de membros: ");
 													fgets(aux, 4, stdin);
 													
-													if (isdigit(aux[0])) {
+													if (isdigit(aux[1])) {
 														entrada = atoi(aux);
 														e[group].qtddMembros = entrada;
 														cont = 2;
@@ -1023,7 +1020,7 @@
 													==============================================================================*/
 														fflush(stdin);
 													
-												} while (cont < 1);
+												} while (cont < 2);
 												
 												break;
 											case 4:
@@ -1032,10 +1029,10 @@
 													int entrada;
 													cont = 0;
 													
-													printf("\t\t Insira a quantidade de titulos dos construtores: ");
+													printf("\n\t\t Insira a quantidade de titulos dos construtores: ");
 													fgets(aux, 4, stdin);
 													
-													if (isdigit(aux[0])) {
+													if (isdigit(aux[1])) {
 														entrada = atoi(aux);
 														e[group].qtddTitulosConstrutores  = entrada;
 														cont = 2;
@@ -1048,7 +1045,7 @@
 													==============================================================================*/
 														fflush(stdin);
 													
-												} while (cont < 1);
+												} while (cont < 2);
 												
 												break;
 											case 5:
@@ -1057,7 +1054,7 @@
 													int entrada;
 													cont = 0;
 													
-													printf("\t\t Insira a quantidade de titulos dos condutores: ");
+													printf("\n\t\t Insira a quantidade de titulos dos condutores: ");
 													fgets(aux, 4, stdin);
 													
 													if (isdigit(aux[0])) {
@@ -1082,7 +1079,7 @@
 													int entrada;
 													cont = 0;
 													
-													printf("\t\t Insira a poli positions: ");
+													printf("\n\t\t Insira a poli positions: ");
 													fgets(aux, 4, stdin);
 													
 													if (isdigit(aux[0])) {
@@ -1107,10 +1104,10 @@
 													int entrada;
 													cont = 0;
 													
-													printf("\t\t Insira a quantidade de voltas mais rapidas: ");
+													printf("\n\t\t Insira a quantidade de voltas mais rapidas: ");
 													fgets(aux, 4, stdin);
 													
-													if (isdigit(aux[0])) {
+													if (isdigit(aux[1])) {
 														entrada = atoi(aux);
 														e[group].qtddVoltasMaisRap  = entrada;
 														cont = 2;
@@ -1123,7 +1120,7 @@
 													==============================================================================*/
 														fflush(stdin);
 													
-												} while (cont < 1);
+												} while (cont < 2);
 												
 												break;
 											case 8:
@@ -1132,10 +1129,10 @@
 													int entrada;
 													cont = 0;
 													
-													printf("\t\t Insira o valor da equipe: ");
+													printf("\n\t\t Insira o valor da equipe: ");
 													fgets(aux, 10, stdin);
 													
-													if (isdigit(aux[0])) {
+													if (isdigit(aux[1])) {
 														entrada = atoi(aux);
 														e[group].valorMercado = entrada;
 														cont = 2;
@@ -1148,7 +1145,7 @@
 													==============================================================================*/
 														fflush(stdin);
 													
-												} while (cont < 1);
+												} while (cont < 2);
 												
 												break;
 											case 9:
@@ -1157,10 +1154,10 @@
 													int entrada;
 													cont = 0;
 													
-													printf("\t\t Insira o valor da taxa de inscricao da temporada: ");
+													printf("\n\t\t Insira o valor da taxa de inscricao da temporada: ");
 													fgets(aux, 10, stdin);
 													
-													if (isdigit(aux[0])) {
+													if (isdigit(aux[1])) {
 														entrada = atoi(aux);
 														e[group].taxaIncricaoTemp  = entrada;
 														cont = 2;
@@ -1173,7 +1170,7 @@
 													==============================================================================*/
 														fflush(stdin);
 													
-												} while (cont < 1);
+												} while (cont < 2);
 												
 												break;
 											case 10:
@@ -1181,7 +1178,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira as cores da equipe: ");
+													printf("\n\t\t Insira as cores da equipe: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1207,7 +1204,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do chefe de equipe: ");
+													printf("\n\t\t Insira o nome do chefe de equipe: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1215,7 +1212,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].chefeEquipe[x] = aux[x];
 														}
 														cont = 2;	
@@ -1233,7 +1230,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do diretor comercial: ");
+													printf("\n\t\t Insira o nome do diretor comercial: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1241,7 +1238,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].diretorComercial[x] = aux[x];
 														}
 														cont = 2;	
@@ -1259,7 +1256,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do diretor tecnico: ");
+													printf("\n\t\t Insira o nome do diretor tecnico: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1267,7 +1264,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].diretorTecnico[x] = aux[x];
 														}
 														cont = 2;	
@@ -1284,7 +1281,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do chefe aerodinamico: ");
+													printf("\n\t\t Insira o nome do chefe aerodinamico: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1292,7 +1289,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].aeroDinamicChefe[x] = aux[x];
 														}
 														cont = 2;	
@@ -1309,7 +1306,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do projetista chefe: ");
+													printf("\n\t\t Insira o nome do projetista chefe: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1317,7 +1314,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].projetistaChefe[x] = aux[x];
 														}
 														cont = 2;	
@@ -1334,7 +1331,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do chefe de pesquisa e desenvolvimento: ");
+													printf("\n\t\t Insira o nome do chefe de pesquisa e desenvolvimento: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1342,7 +1339,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].chefePesqEhDev[x] = aux[x];
 														}
 														cont = 2;	
@@ -1359,7 +1356,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do chefe mecanico: ");
+													printf("\n\t\t Insira o nome do chefe mecanico: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1367,7 +1364,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].chefeMecanico[x] = aux[x];
 														}
 														cont = 2;	
@@ -1384,7 +1381,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do tecnico de pneus: ");
+													printf("\n\t\t Insira o nome do tecnico de pneus: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1392,7 +1389,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].tecnicoPneus[x] = aux[x];
 														}
 														cont = 2;	
@@ -1409,7 +1406,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do tecnico de componentes: ");
+													printf("\n\t\t Insira o nome do tecnico de componentes: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1417,7 +1414,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].tecnicoComponentes[x] = aux[x];
 														}
 														cont = 2;	
@@ -1434,7 +1431,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira nome do tecnico de componentes: ");
+													printf("\n\t\t Insira nome do tecnico de componentes: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1442,7 +1439,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].tecnicoTransmissao[x] = aux[x];
 														}
 														cont = 2;	
@@ -1459,7 +1456,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira o nome do tecnico de combustiveis: ");
+													printf("\n\t\t Insira o nome do tecnico de combustiveis: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1467,7 +1464,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].tecnicoCombustivel[x] = aux[x];
 														}
 														cont = 2;	
@@ -1486,7 +1483,7 @@
 													char aux[30];
 													cont = 0;
 																			
-													printf("\t\t Insira os nomes do tecnicos de pitstop: ");
+													printf("\n\t\t Insira os nomes do tecnicos de pitstop: ");
 													fgets(aux, 30, stdin);
 													
 													if (strlen(aux) == 1) {
@@ -1494,7 +1491,7 @@
 														cont = 1;
 														
 													}else {
-														for(int x=0; x<strlen(aux); x++) {
+														for(int x=0; x<=strlen(aux); x++) {
 															e[group].mecanicosPitStop[l][x] = aux[x];
 															fflush(stdin);
 														}
@@ -1599,12 +1596,9 @@
 							
 							int final_answer;
 							
-							printf("Retornar ao menu anterior? (0 = NAO || 1 = SIM): ");
+							printf("\n\t\tRetornar ao menu anterior? (0 = NAO || 1 = SIM): ");
 							scanf("%i", &final_answer);
 							
-							if (final_answer == 1) {
-								system("cls"); // Corrigir para funcionamento com linux tbm!!!!
-							}  
 							
 							/* Fechando o arquivo:
 							======================================================================================================*/
@@ -1634,7 +1628,7 @@
 						    	/* Grupo:
 						    	==============================================================================================*/
 									fscanf(filePointerEquip, "%i\n", &e[m].grupo);
-									printf("\t\t Grupo %i:\n\n", e[m].grupo);
+									printf("\n\t\t Grupo %i:\n\n", e[m].grupo);
 							    
 							    /* Limpando Buffer:
 							    ==============================================================================================*/
@@ -1643,12 +1637,12 @@
 							        /* Nome:
 									==============================================================================================*/		    	
 							    		fgets(e[m].nome, 50, filePointerEquip);
-							    		printf("\t\t %s", e[m].nome);
+							    		printf("\n\t\t %s", e[m].nome);
 							    	
 							    	/* Nacionalidade:
 									==============================================================================================*/
 							    		fgets(e[m].nacionalidade, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].nacionalidade);
+							    		printf("\n\t\t %s", e[m].nacionalidade);
 							    		
 							    	/* Limpando Buffer:
 								    ==============================================================================================*/
@@ -1657,22 +1651,22 @@
 							    	/* Quantidade de membros:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].qtddMembros);
-							    		printf("\t\t %i\n", e[m].qtddMembros);
+							    		printf("\n\t\t %i\n", e[m].qtddMembros);
 							    	
 							    	/* Quantidade de titulos dos contrutores:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].qtddTitulosConstrutores );
-							    		printf("\t\t %i\n", e[m].qtddTitulosConstrutores );
+							    		printf("\n\t\t %i\n", e[m].qtddTitulosConstrutores );
 							    	
 							    	/* Quantidade de titulos dos condutores
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].qtddTitulosCondutores);
-							    		printf("\t\t %i\n", e[m].qtddTitulosCondutores);
+							    		printf("\n\t\t %i\n", e[m].qtddTitulosCondutores);
 							    	
 							    	/* Poli Positions:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].poliPositions);
-							    		printf("\t\t %i\n", e[m].poliPositions);
+							    		printf("\n\t\t %i\n", e[m].poliPositions);
 							    		
 							        /* Limpando Buffer:
 							        ==============================================================================================*/
@@ -1681,17 +1675,17 @@
 							    	/* Quantidades de voltas mais rapidas:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].qtddVoltasMaisRap );
-							    		printf("\t\t %i\n", e[m].qtddVoltasMaisRap );
+							    		printf("\n\t\t %i\n", e[m].qtddVoltasMaisRap );
 							    	                                
 							    	/* Valor do mercado:
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].valorMercado);
-							    		printf("\t\t %i\n", e[m].valorMercado);
+							    		printf("\n\t\t %i\n", e[m].valorMercado);
 							    	
 									/* Taxa de inscrição na temporada
 									==============================================================================================*/
 							    		fscanf(filePointerEquip, "%i\n", &e[m].taxaIncricaoTemp );
-							    		printf("\t\t %i\n", e[m].taxaIncricaoTemp );
+							    		printf("\n\t\t %i\n", e[m].taxaIncricaoTemp );
 							    	
 							    	/* Limpando Buffer:
 								    ==============================================================================================*/
@@ -1700,37 +1694,37 @@
 							    	/* Cores da equipe:
 									==============================================================================================*/		    	
 							    		fgets(e[m].coresEquipe, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].coresEquipe);
+							    		printf("\n\t\t %s", e[m].coresEquipe);
 							    	
 							    	/* Chefe da equipe:
 									==============================================================================================*/
 							    		fgets(e[m].chefeEquipe, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].chefeEquipe);
+							    		printf("\n\t\t %s", e[m].chefeEquipe);
 							    	
 							    	/* Diretor Comercial:
 									==============================================================================================*/		    	
 							    		fgets(e[m].diretorComercial, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].diretorComercial);
+							    		printf("\n\t\t %s", e[m].diretorComercial);
 							    	
 							    	/* Diretor Tecnico:
 									==============================================================================================*/
 							    		fgets(e[m].diretorTecnico, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].diretorTecnico);
+							    		printf("\n\t\t %s", e[m].diretorTecnico);
 							    	
 							    	/* Chefe aereo dinamico:
 									==============================================================================================*/		    	
 							    		fgets(e[m].aeroDinamicChefe, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].aeroDinamicChefe);
+							    		printf("\n\t\t %s", e[m].aeroDinamicChefe);
 							    	
 							    	/* Chefe projetista:
 									==============================================================================================*/
 							    		fgets(e[m].projetistaChefe, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].projetistaChefe);
+							    		printf("\n\t\t %s", e[m].projetistaChefe);
 							    		
 							    	/* Chefe de pesquisa e desenvolvimento:
 									==============================================================================================*/		    	
 							    		fgets(e[m].chefePesqEhDev, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].chefePesqEhDev);
+							    		printf("\n\t\t %s", e[m].chefePesqEhDev);
 							    		
 							    	/* Limpando Buffer:
 							        ==============================================================================================*/
@@ -1739,33 +1733,33 @@
 							    	/* Chefe Mecanico:
 									==============================================================================================*/
 							    		fgets(e[m].chefeMecanico, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].chefeMecanico);
+							    		printf("\n\t\t %s", e[m].chefeMecanico);
 							    		
 							    	/* Tecnico de pneus:
 									==============================================================================================*/		    	
 							    		fgets(e[m].tecnicoPneus, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].tecnicoPneus);
+							    		printf("\n\t\t %s", e[m].tecnicoPneus);
 							    	
 							    	/* Tecnico de componentes:
 									==============================================================================================*/
 							    		fgets(e[m].tecnicoComponentes, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].tecnicoComponentes);
+							    		printf("\n\t\t %s", e[m].tecnicoComponentes);
 							    		
 							    	/* Tecnico de transmissão:
 									==============================================================================================*/		    	
 							    		fgets(e[m].tecnicoTransmissao, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].tecnicoTransmissao);
+							    		printf("\n\t\t %s", e[m].tecnicoTransmissao);
 							    	
 							    	/* Tecnico de combustivel:
 									==============================================================================================*/
 							    		fgets(e[m].tecnicoCombustivel, 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].tecnicoCombustivel);
+							    		printf("\n\t\t %s", e[m].tecnicoCombustivel);
 							    		
 							    	/* Mecanico de pit stop:
 									==============================================================================================*/
 									for(int l = 0; l < 21; l++){		    	
 							    		fgets(e[m].mecanicosPitStop[l], 30, filePointerEquip);
-							    		printf("\t\t %s", e[m].mecanicosPitStop);
+							    		printf("\n\t\t %s", e[m].mecanicosPitStop);
                                 }
 									/* Limpando Buffer:
 							        ==============================================================================================*/
@@ -1785,7 +1779,7 @@
 						    	int group;
 						    	int exclusionOption;
 						    	
-						    	printf("\t\t Qual grupo deseja excluir: ");
+						    	printf("\n\t\t Qual grupo deseja excluir: ");
 						    	scanf("%i", &group);
 								
 								for (int y=0; y<m; y++) {
@@ -1932,10 +1926,7 @@
 							
 							printf("\t\t Retornar ao menu anterior? (0 = NAO || 1 = SIM): ");
 							scanf("%i", &final_answer);
-							
-							if (final_answer == 1) {
-								system("cls"); // Corrigir para funcionamento com linux tbm!!!!
-							} 
+							 
 							
 							/* Fechando o arquivo:
 							======================================================================================================*/
@@ -1968,7 +1959,7 @@
 							    	/* Grupo:
 							    	==============================================================================================*/
 										fscanf(filePointerEquip, "%i\n\n", &e[m].grupo);
-										printf("\t\t Grupo %i:\n\n", e[m].grupo);
+										printf("\n\t\t Grupo %i:\n\n", e[m].grupo);
 								    
 								    /* Limpando Buffer:
 								    ==============================================================================================*/
@@ -1977,7 +1968,7 @@
 			                        /* Nome:
 									==============================================================================================*/		    	
 							    		fgets(e[m].nome, 50, filePointerEquip);
-							    		printf("\t\t %s", e[m].nome);
+							    		printf("\n\t\t %s", e[m].nome);
 							    	
 							    	/* Nacionalidade:
 									==============================================================================================*/
@@ -2101,9 +2092,6 @@
 								printf("Retornar ao menu anterior? (0 = NAO || 1 = SIM): ");
 								scanf("%i", &answer);
 								
-								if (answer == 1) {
-									system("cls"); // Corrigir para funcionamento com linux tbm!!!!
-								}
 								
 								/* Fechando o arquivo depois do uso:
 								==================================================================================================*/
@@ -2112,122 +2100,3 @@
 			//}
 		}
 		
-		
-/* Funcao de reescrita:
-	==============================================================================================================*/
-		int reescrever_equip() {	
-			int tam;
-			int num1_last_group;
-			int sizeFil;
-			
-			sizeFil = ftell(filePointerEquip);
-			
-			if (sizeFil != 0) {
-				tam = 0;
-				
-				while (!feof(filePointerEquip)) {
-			    	/* Grupo:
-			    	==============================================================================================*/
-						fscanf(filePointerEquip, "%i\n", &e[tam].grupo);
-				    
-				    /* Limpando Buffer:
-				    ==============================================================================================*/
-				   		fflush(stdin);
-			    	
-				    	fgets(e[tam].nome, 50, filePointerEquip);
-				    	fgets(e[tam].nacionalidade, 30, filePointerEquip);
-				    	fscanf(filePointerEquip, "%i\n", &e[tam].qtddMembros);
-				    	fscanf(filePointerEquip, "%i\n", &e[tam].qtddTitulosConstrutores);
-				    	fscanf(filePointerEquip, "%i\n", &e[tam].qtddTitulosCondutores);
-				    	fscanf(filePointerEquip, "%i\n", &e[tam].poliPositions);
-				    	fscanf(filePointerEquip, "%i\n", &e[tam].qtddVoltasMaisRap);
-				    	fscanf(filePointerEquip, "%i\n", &e[tam].valorMercado);
-				    	fscanf(filePointerEquip, "%i\n", &e[tam].taxaIncricaoTemp );
-				    	fgets(e[tam].coresEquipe, 30, filePointerEquip);
-				    	fgets(e[tam].chefeEquipe, 30, filePointerEquip);
-				    	fgets(e[tam].diretorComercial, 30, filePointerEquip);
-				    	fgets(e[tam].diretorTecnico, 30, filePointerEquip);
-				    	fgets(e[tam].aeroDinamicChefe, 30, filePointerEquip);
-				    	fgets(e[tam].projetistaChefe, 30, filePointerEquip);
-				    	fgets(e[tam].chefePesqEhDev, 30, filePointerEquip);
-				    	fgets(e[tam].chefeMecanico, 30, filePointerEquip);
-				    	fgets(e[tam].tecnicoPneus, 30, filePointerEquip);
-				    	fgets(e[tam].tecnicoComponentes, 30, filePointerEquip);
-				    	fgets(e[tam].tecnicoTransmissao, 30, filePointerEquip);
-				    	fgets(e[tam].tecnicoCombustivel, 30, filePointerEquip);
-				    	
-				    	for(int l = 0; l < 21; l++){
-				    		fgets(e[tam].mecanicosPitStop[l], 30, filePointerEquip);
-				    	
-				    }
- 					   	fflush(stdin);
-
-			    	
-			    	/* Atualizando o valor de length:
-			    	==============================================================================================*/
-			    		tam++;
-				}
-				
-				printf("%i", tam);
-				
-				// Fechando o modo leitura:
-					fechar_arqEquip();
-				
-				// Criando um arquivo novo:
-					criar_arqEquip("arquivo_equipe.txt");
-				
-					int v;
-					v = 0;
-				
-					while(v <= tam) {
-						e[v].grupo = v;
-					
-						fprintf(filePointerEquip, "%i\n", e[v].grupo);
-						fprintf(filePointerEquip, "%s", e[v].nome);
-						fprintf(filePointerEquip, "%s", e[v].nacionalidade);
-						fprintf(filePointerEquip, "%i\n", e[v].qtddMembros);
-						fprintf(filePointerEquip, "%i\n", e[v].qtddTitulosConstrutores );
-						fprintf(filePointerEquip, "%i\n", e[v].qtddTitulosCondutores);
-						fprintf(filePointerEquip, "%i\n", e[v].poliPositions);
-						fprintf(filePointerEquip, "%i\n", e[v].qtddVoltasMaisRap);
-						fprintf(filePointerEquip, "%i\n", e[v].valorMercado);
-						fprintf(filePointerEquip, "%i\n", e[v].taxaIncricaoTemp );
-						fprintf(filePointerEquip, "%s", e[v].coresEquipe);
-						fprintf(filePointerEquip, "%s", e[v].chefeEquipe);
-						fprintf(filePointerEquip, "%s", e[v].diretorComercial);
-						fprintf(filePointerEquip, "%s", e[v].diretorTecnico);
-						fprintf(filePointerEquip, "%s", e[v].aeroDinamicChefe);
-						fprintf(filePointerEquip, "%s", e[v].projetistaChefe);
-						fprintf(filePointerEquip, "%s", e[v].chefePesqEhDev);
-						fprintf(filePointerEquip, "%s", e[v].chefeMecanico);
-						fprintf(filePointerEquip, "%s", e[v].tecnicoPneus);
-						fprintf(filePointerEquip, "%s", e[v].tecnicoComponentes);
-						fprintf(filePointerEquip, "%s", e[v].tecnicoTransmissao);
-						fprintf(filePointerEquip, "%s", e[v].tecnicoCombustivel);
-	
-			    	for(int l = 0; l < 21; l++){
-									
-     					fprintf(filePointerEquip, "%s", e[v].mecanicosPitStop[l]);
-                    }
-						v++;
-					}
-				
-				// Fechando o arquivo do modo criar:
-					fechar_arqEquip();
-				
-				/* Abrindo o arquivo no modo escrita e leitura:
-				======================================================================================================*/
-					abrir_arqEquip("arquivo_equipe.txt");
-				
-				/* Setando o ponteiro na ultima linha:
-				======================================================================================================*/
-					fseek(filePointerEquip, 0, SEEK_END);
-				
-				return v;
-				
-			} else {
-				num1_last_group = 0;
-				
-				return num1_last_group;
-			}
-		}
