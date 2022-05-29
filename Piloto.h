@@ -1455,11 +1455,13 @@
 	        abrir("arquivo_pilotos.txt");
 	        //qtdPilotos = reescrever();
 			
+			m = 0;
+			
 			while (!feof(filePointer)) {
 		    	/* Grupo:
 		    	==============================================================================================*/
 					fscanf(filePointer, "%i\n", &p[m].grupo);
-					printf("\t\t Grupo %i:\n\n", p[m].grupo);
+					//printf("\t\t Grupo %i:\n\n", p[m].grupo);
 			    
 			    /* Limpando Buffer:
 			    ==============================================================================================*/
@@ -1468,27 +1470,27 @@
 				/* Nome:
 				==============================================================================================*/		    	
 		    		fgets(p[m].nome, 50, filePointer);
-		    		printf("\t\t %s", p[m].nome);
+		    		//printf("\t\t %s", p[m].nome);
 		    	
 		    	/* Nacionalidade:
 				==============================================================================================*/
 		    		fgets(p[m].nacionalidade, 30, filePointer);
-		    		printf("\t\t %s", p[m].nacionalidade);
+		    		//printf("\t\t %s", p[m].nacionalidade);
 		    	
 		    	/* Cor de Pele:
 				==============================================================================================*/
 		    		fgets(p[m].corPele, 30, filePointer);
-		    		printf("\t\t %s", p[m].corPele);
+		    		//printf("\t\t %s", p[m].corPele);
 		    	
 		    	/* Cor dos Olhos:
 				==============================================================================================*/
 		    		fgets(p[m].corOlhos, 30, filePointer);
-		    		printf("\t\t %s", p[m].corOlhos);
+		    		//printf("\t\t %s", p[m].corOlhos);
 		    	
 		    	/* Cor dos Cabelos:
 				==============================================================================================*/
 		    		fgets(p[m].corCabelo, 30, filePointer);
-		    		printf("\t\t %s", p[m].corCabelo);
+		    		//printf("\t\t %s", p[m].corCabelo);
 		    	
 		    	/* Limpando Buffer:
 			    ==============================================================================================*/
@@ -1497,32 +1499,32 @@
 		    	/* Altura:
 				==============================================================================================*/
 		    		fscanf(filePointer, "%i\n", &p[m].altura);
-		    		printf("\t\t %i\n", p[m].altura);
+		    		//printf("\t\t %i\n", p[m].altura);
 		    	                                
 		    	/* Peso:
 				==============================================================================================*/
 		    		fscanf(filePointer, "%i\n", &p[m].peso);
-		    		printf("\t\t %i\n", p[m].peso);
+		    		//printf("\t\t %i\n", p[m].peso);
 		    	                                
 		    	/* Idade:
 				==============================================================================================*/
 		    		fscanf(filePointer, "%i\n", &p[m].idade);
-		    		printf("\t\t %i\n", p[m].idade);
+		    		//printf("\t\t %i\n", p[m].idade);
 		    	
 				/* Qtd Campeonatos Ganhos:
 				==============================================================================================*/
 		    		fscanf(filePointer, "%i\n", &p[m].qtdCampeonatosGanhos);
-		    		printf("\t\t %i\n", p[m].qtdCampeonatosGanhos);
+		    		//printf("\t\t %i\n", p[m].qtdCampeonatosGanhos);
 		    	
 		    	/* Pole Position:
 				==============================================================================================*/
 		    		fscanf(filePointer, "%i\n", &p[m].polePosition);
-		    		printf("\t\t %i\n", p[m].polePosition);
+		    		//printf("\t\t %i\n", p[m].polePosition);
 		    	
 		    	/* Qtd de Voltas Rapidas:
 				==============================================================================================*/
 		    		fscanf(filePointer, "%i\n", &p[m].qtdVoltasRap);
-		    		printf("\t\t %i\n\n", p[m].qtdVoltasRap);	
+		    		//printf("\t\t %i\n\n", p[m].qtdVoltasRap);	
 		    	
 		    	/* Atualizando o valor de m:
 		    	==============================================================================================*/
@@ -1535,10 +1537,10 @@
 				
 			qtdPilotos = m;
 			
-			printf("%i", m);
+			//printf("%i", m);
 			
-			for(b = 0; b <= qtdPilotos; b++){
-	            calculo[b] = p[b].qtdCampeonatosGanhos/p[b].idade;
+			for(b=0; b<qtdPilotos; b++){
+	            calculo[b] = p[b].qtdVoltasRap/p[b].idade;
 	            controle[b] = 1; 
             }
 			
@@ -1550,21 +1552,30 @@
 				for (b=0; b<qtdPilotos; b++) {
 					if (maior < calculo[b] && controle[b] == 1) {
 						maior = calculo[b];
+						//printf("%i", maior);
 						controle[b] = 0;
 					}
 				}
 				
-				podio[n] = calculo[b];
-				pilotoSelecionado[n] = b;
+				for (b=0; b<qtdPilotos; b++) {
+					podio[n] = calculo[b];
+					pilotoSelecionado[n] = b;
+				}
 				
 				n++; 
 			}
 			
+			int zoom;
+			
+			printf("\n\t\t Podio de Pilotos:\n");
+			
 			for (b=0; b<n; b++) {
-				printf("\n\t\t Podio de Pilotos:\n");
+				zoom = b+1;
+				
 				printf("\n\t\t Piloto: %s", p[pilotoSelecionado[b]].nome);
-				printf("\n\t\t Posicao do Podio: %i", (b+1));
-				printf("\n\t\t Valor do Calculo: %f", podio[b]);
+				printf("\n\t\t Posicao do Podio: %i", &zoom);
+				printf("\n\t\t Valor do Calculo: %f", &podio[b]);
 			}
+			printf("\n\n\t\t\t ERROR 404");
         }
 		 
