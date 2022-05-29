@@ -1,0 +1,172 @@
+0
+Mercedes-AMG Petronas Formula One Team
+Alemanha
+140
+8
+9
+219
+85
+100100000
+4826
+Preto e Prata
+Toto Wolff
+Richard Sanders
+Mike Elliott
+Jarrod Murphy
+James Allison
+Michael
+Matt Deane
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+0
+Oracle Red Bull Racing
+Reino Unido
+650
+4
+5
+75
+77
+640000000
+3955
+Azul e Vermelho
+Christian Horner
+Oliver Hughes
+Ben HodgKinson
+Enrico Balbo
+Adrian Newey
+Rob Marshall
+Plilip Tuner
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+0
+Scuderia Ferrari
+Italia
+100
+16
+15
+233
+256
+135000000
+2433
+Vermelho e Preto
+Mattia Binotto
+John Elkann
+Enrico Cardile
+Loic Bigois
+Fabio Montecchi
+Amaury de Bock
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+0
+Alfa Romeo F1 Team Orlen
+Sui‡a
+430
+0
+2
+12
+5
+105000000
+652
+Branco e Vermelho
+Fr‚d‚ric Vasseur
+NAO CONSTA
+Jan Monchaux
+Alessandro Cinelli
+Eric Gandelin
+Luca Furbatto
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
+NULL
