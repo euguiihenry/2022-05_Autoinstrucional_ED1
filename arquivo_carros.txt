@@ -1,0 +1,26 @@
+0
+F1 W13 E Performance
+500
+200
+970
+795
+Mercedes-AMG F1M13 E Performance
+V6 turbocharged
+250
+100
+8
+18
+10
+1
+Ferrari F1-75
+368
+140
+102
+795
+F1-75 v6 1600cc
+v6 1600cc
+240
+100
+8
+18
+10
